@@ -33,9 +33,6 @@ namespace mesh_import
 
       // Faces
       else if (id == "f") {
-        // TASK1: Add quads
-        // TASK2: read indices for normals and UVs
-        // TASK3: Optimize data structure to cache indices (map) -> IMPORTANT
         std::string v1, v2, v3;
         ss_line >> v1 >> v2 >> v3;
 
@@ -62,7 +59,7 @@ namespace mesh_import
             LOG_WARN_ONCE("Vertex index out of range: %u", v_idx);
         }
     } 
-
+    
     LOG_INFO("OBJ import completed: %s", filepath.c_str());
     return true;
   }
