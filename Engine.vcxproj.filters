@@ -61,6 +61,9 @@
     <Filter Include="External\glad">
       <UniqueIdentifier>{2e32dde6-4cff-4214-ae11-9e00a37a9ab2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="External\stb">
+      <UniqueIdentifier>{b4688f1a-e7dc-4b86-b1c7-da7f30567b14}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\src\Main.cpp">
@@ -147,6 +150,9 @@
     <ClCompile Include="Engine\src\Rendering\Skybox.cpp">
       <Filter>Source Files\Engine\Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="External\stb\std_image.cpp">
+      <Filter>External\stb</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\src\pch.h">
@@ -197,9 +203,6 @@
     <ClInclude Include="Engine\src\Scene\VertexHolder.h">
       <Filter>Header Files\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\src\Platform\GUIManager.h">
-      <Filter>Header Files\Platform</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\src\Platform\imguiWidgets.h">
       <Filter>Header Files\Platform</Filter>
     </ClInclude>
@@ -231,9 +234,6 @@
       <Filter>Header Files\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="Engine\src\Rendering\ShaderUtil.h">
-      <Filter>Header Files\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\src\Rendering\SimulationManager.h">
       <Filter>Header Files\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="Engine\src\Assets\importBase.h">
@@ -278,24 +278,33 @@
     <ClInclude Include="Engine\src\Rendering\Skybox.h">
       <Filter>Header Files\Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="External\stb\stb_image.h">
+      <Filter>External\stb</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Engine\shaders\fs_pbr.frag.glsl">
+    <None Include="Engine\assets\shaders\fs_pbr.frag.glsl">
       <Filter>Resource Files\shaders</Filter>
     </None>
-    <None Include="Engine\shaders\shadow_depth.frag.glsl">
+    <None Include="Engine\assets\shaders\shadow_depth.frag.glsl">
       <Filter>Resource Files\shaders</Filter>
     </None>
-    <None Include="Engine\shaders\shadow_depth.vert.glsl">
+    <None Include="Engine\assets\shaders\shadow_depth.vert.glsl">
       <Filter>Resource Files\shaders</Filter>
     </None>
-    <None Include="Engine\shaders\vs_pbr.vert.glsl">
+    <None Include="Engine\assets\shaders\vs_pbr.vert.glsl">
       <Filter>Resource Files\shaders</Filter>
     </None>
-    <None Include="Engine\shaders\world_grid.frag.glsl">
+    <None Include="Engine\assets\shaders\world_grid.frag.glsl">
       <Filter>Resource Files\shaders</Filter>
     </None>
-    <None Include="Engine\shaders\world_grid.vert.glsl">
+    <None Include="Engine\assets\shaders\world_grid.vert.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="Engine\assets\shaders\skybox.frag.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="Engine\assets\shaders\skybox.vert.glsl">
       <Filter>Resource Files\shaders</Filter>
     </None>
   </ItemGroup>

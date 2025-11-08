@@ -3,10 +3,13 @@
 #include "Scene/Camera.h"
 #include "Scene/Mesh.h"
 #include "Scene/Light.h"
-#include "Rendering/shaderUtil.h"
-#include "Rendering/openglBufferManager.h"
 #include "Scene/Input.h"
 #include "Scene/Object.h"
+
+#include "Rendering/Cubemap.h"
+#include "Rendering/Skybox.h"
+#include "Rendering/shaderUtil.h"
+#include "Rendering/openglBufferManager.h"
 
 extern Debug gLog; // Global Variable for debugging and logs
 
@@ -14,14 +17,29 @@ namespace gui {
     class SceneView{
     public:
         SceneView() :
-            _camera(nullptr), _frameBuffer(nullptr), _shader(nullptr),
-            _light(nullptr), _size(3840, 2160)
+            _camera(nullptr), _frameBuffer(nullptr), _shader(nullptr), _light(nullptr),
+            _worldGridShader(nullptr), _shadowShader(nullptr), _size(3840, 2160)
         {
             _frameBuffer = std::make_unique<render::OpenGLFrameBuffer>();
             _frameBuffer->createBuffers(3840, 2160);
-            
+
             _shader = std::make_unique<shaders::Shader>();
             _shader->load("Engine/assets/shaders/vs_pbr.vert.glsl", "Engine/assets/shaders/fs_pbr.frag.glsl");
+
+            std::array<std::string, 6> facesCubemap = {
+                "Engine/assets/cubemaps/" + folder + "/px.png",
+                "Engine/assets/cubemaps/" + folder + "/nx.png",
+                "Engine/assets/cubemaps/" + folder + "/py.png",
+                "Engine/assets/cubemaps/" + folder + "/ny.png",
+                "Engine/assets/cubemaps/" + folder + "/pz.png",
+                "Engine/assets/cubemaps/" + folder + "/nz.png"
+            };
+
+            _skyboxShader = std::make_unique<shaders::Shader>();
+            _skyboxShader->load("Engine/assets/shaders/skybox.vert.glsl", "Engine/assets/shaders/skybox.frag.glsl");
+
+            _cubemap = std::make_unique<render::Cubemap>(facesCubemap);
+            _skybox = std::make_unique<render::Skybox>(_cubemap.get(), _skyboxShader.get());
 
             _worldGridShader = std::make_unique<shaders::Shader>();
             _worldGridShader->load("Engine/assets/shaders/world_grid.vert.glsl", "Engine/assets/shaders/world_grid.frag.glsl");
@@ -84,9 +102,14 @@ namespace gui {
         void LightSpaceMatrix();
         void InitShadowResource();
         void ShadowPass();
+        void SkyboxRender();
 
     private:       
         std::unique_ptr<render::OpenGLFrameBuffer> _frameBuffer;
+
+        std::unique_ptr<render::Cubemap> _cubemap;
+        std::unique_ptr<render::Skybox> _skybox;
+        std::unique_ptr<shaders::Shader> _skyboxShader;
 
         std::unique_ptr<shaders::Shader> _shader;
         std::unique_ptr<shaders::Shader> _worldGridShader;
@@ -104,6 +127,8 @@ namespace gui {
         glm::vec2 _lastMousePos;
         glm::mat4 _lightSpaceMatrix;
         glm::vec3 _backgroundColour{ 1.0f, 1.0f, 1.0f };
+
+        std::string folder = "s3";
 
         float _backgroundAlpha = 1.0f;
         float planeHeight = -2.5f;

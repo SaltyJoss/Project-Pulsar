@@ -9,6 +9,7 @@
 #include <iostream>
 #include <memory>
 #include <ctime>
+#include <array>
 
 // GL includes
 #include <glew.h>

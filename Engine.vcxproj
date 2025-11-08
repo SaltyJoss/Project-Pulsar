@@ -182,6 +182,7 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     <ClCompile Include="External\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="External\imgui\imgui_tables.cpp" />
     <ClCompile Include="External\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="External\stb\std_image.cpp" />
     <ClCompile Include="Game\src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -189,7 +190,6 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     <ClInclude Include="Engine\src\Assets\importBase.h" />
     <ClInclude Include="Engine\src\Assets\importObj.h" />
     <ClInclude Include="Engine\src\pch.h" />
-    <ClInclude Include="Engine\src\Platform\GUIManager.h" />
     <ClInclude Include="Engine\src\Platform\imguiWidgets.h" />
     <ClInclude Include="Engine\src\Platform\Logger.h" />
     <ClInclude Include="Engine\src\Platform\str_utils.h" />
@@ -202,7 +202,6 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     <ClInclude Include="Engine\src\Rendering\RenderBase.h" />
     <ClInclude Include="Engine\src\Rendering\shaderClass.h" />
     <ClInclude Include="Engine\src\Rendering\ShaderUtil.h" />
-    <ClInclude Include="Engine\src\Rendering\SimulationManager.h" />
     <ClInclude Include="Engine\src\Rendering\Skybox.h" />
     <ClInclude Include="Engine\src\Scene\Camera.h" />
     <ClInclude Include="Engine\src\Scene\ControlPanel.h" />
@@ -228,14 +227,17 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     <ClInclude Include="External\imgui\imstb_rectpack.h" />
     <ClInclude Include="External\imgui\imstb_textedit.h" />
     <ClInclude Include="External\imgui\imstb_truetype.h" />
+    <ClInclude Include="External\stb\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Engine\shaders\fs_pbr.frag.glsl" />
-    <None Include="Engine\shaders\shadow_depth.frag.glsl" />
-    <None Include="Engine\shaders\shadow_depth.vert.glsl" />
-    <None Include="Engine\shaders\vs_pbr.vert.glsl" />
-    <None Include="Engine\shaders\world_grid.frag.glsl" />
-    <None Include="Engine\shaders\world_grid.vert.glsl" />
+    <None Include="Engine\assets\shaders\fs_pbr.frag.glsl" />
+    <None Include="Engine\assets\shaders\shadow_depth.frag.glsl" />
+    <None Include="Engine\assets\shaders\shadow_depth.vert.glsl" />
+    <None Include="Engine\assets\shaders\skybox.frag.glsl" />
+    <None Include="Engine\assets\shaders\skybox.vert.glsl" />
+    <None Include="Engine\assets\shaders\vs_pbr.vert.glsl" />
+    <None Include="Engine\assets\shaders\world_grid.frag.glsl" />
+    <None Include="Engine\assets\shaders\world_grid.vert.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

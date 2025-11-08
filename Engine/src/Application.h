@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Platform/GUIManager.h"
 #include "Platform/WindowManager.h"
 #include "Scene/Camera.h"
 
@@ -22,9 +21,4 @@ private:
 	static Application* sInstance;
 
 	std::unique_ptr<window::GLWindow> _window;
-
-	/*std::unique_ptr<GUIManager> gui;
-	WindowManager windowManager;
-	GLFWwindow* window = nullptr;
-	std::unique_ptr<SimulationManager> simulation;*/
 };

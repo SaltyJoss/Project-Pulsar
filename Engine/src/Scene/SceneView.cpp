@@ -12,6 +12,7 @@ namespace gui{
 
 		WorldGridRender();
 		MeshRender();
+		SkyboxRender();
 		
 		_frameBuffer->unbind();
 
@@ -233,5 +234,13 @@ namespace gui{
 		}
 
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	}
+
+	void SceneView::SkyboxRender() {
+		if (_skybox) {
+			glm::mat4 view = _camera->getViewMatrix();
+			glm::mat4 projection = _camera->getProjection();
+			_skybox->render(view, projection);
+		}
 	}
 }
