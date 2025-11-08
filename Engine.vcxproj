@@ -159,12 +159,14 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     <ClCompile Include="Engine\src\Assets\importObj.cpp" />
     <ClCompile Include="Engine\src\Platform\GUIManager.cpp" />
     <ClCompile Include="Engine\src\Platform\WindowManager.cpp" />
+    <ClCompile Include="Engine\src\Rendering\Cubemap.cpp" />
     <ClCompile Include="Engine\src\Rendering\GUIContext.cpp" />
     <ClCompile Include="Engine\src\Rendering\OpenGLBufferManager.cpp" />
     <ClCompile Include="Engine\src\Rendering\OpenGLContext.cpp" />
     <ClCompile Include="Engine\src\Rendering\shaderClass.cpp" />
     <ClCompile Include="Engine\src\Rendering\ShaderUtil.cpp" />
     <ClCompile Include="Engine\src\Rendering\SimulationManager.cpp" />
+    <ClCompile Include="Engine\src\Rendering\Skybox.cpp" />
     <ClCompile Include="Engine\src\Scene\ControlPanel.cpp" />
     <ClCompile Include="Engine\src\Scene\DebugPanel.cpp" />
     <ClCompile Include="Engine\src\Scene\Mesh.cpp" />
@@ -193,6 +195,7 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     <ClInclude Include="Engine\src\Platform\str_utils.h" />
     <ClInclude Include="Engine\src\Platform\Window.h" />
     <ClInclude Include="Engine\src\Platform\WindowManager.h" />
+    <ClInclude Include="Engine\src\Rendering\Cubemap.h" />
     <ClInclude Include="Engine\src\Rendering\GUIContext.h" />
     <ClInclude Include="Engine\src\Rendering\OpenGLBufferManager.h" />
     <ClInclude Include="Engine\src\Rendering\OpenGLContext.h" />
@@ -200,6 +203,7 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     <ClInclude Include="Engine\src\Rendering\shaderClass.h" />
     <ClInclude Include="Engine\src\Rendering\ShaderUtil.h" />
     <ClInclude Include="Engine\src\Rendering\SimulationManager.h" />
+    <ClInclude Include="Engine\src\Rendering\Skybox.h" />
     <ClInclude Include="Engine\src\Scene\Camera.h" />
     <ClInclude Include="Engine\src\Scene\ControlPanel.h" />
     <ClInclude Include="Engine\src\Scene\DebugLogEntry.h" />

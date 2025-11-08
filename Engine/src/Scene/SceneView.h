@@ -21,13 +21,13 @@ namespace gui {
             _frameBuffer->createBuffers(3840, 2160);
             
             _shader = std::make_unique<shaders::Shader>();
-            _shader->load("Engine/shaders/vs_pbr.vert.glsl", "Engine/shaders/fs_pbr.frag.glsl");
+            _shader->load("Engine/assets/shaders/vs_pbr.vert.glsl", "Engine/assets/shaders/fs_pbr.frag.glsl");
 
             _worldGridShader = std::make_unique<shaders::Shader>();
-            _worldGridShader->load("Engine/shaders/world_grid.vert.glsl", "Engine/shaders/world_grid.frag.glsl");
+            _worldGridShader->load("Engine/assets/shaders/world_grid.vert.glsl", "Engine/assets/shaders/world_grid.frag.glsl");
 
             _shadowShader = std::make_unique<shaders::Shader>();
-            _shadowShader->load("Engine/shaders/shadow_depth.vert.glsl", "Engine/shaders/shadow_depth.frag.glsl");
+            _shadowShader->load("Engine/assets/shaders/shadow_depth.vert.glsl", "Engine/assets/shaders/shadow_depth.frag.glsl");
             
             _light = std::make_unique<elements::Light>();
             _camera = std::make_unique<elements::Camera>(glm::vec3(0, 15, 20), 45.0f, 1280.0f / 720.0f, 0.1f, 2000.0f);

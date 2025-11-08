@@ -141,6 +141,12 @@
     <ClCompile Include="External\GLAD\glad.c">
       <Filter>External\glad</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\src\Rendering\Cubemap.cpp">
+      <Filter>Source Files\Engine\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\src\Rendering\Skybox.cpp">
+      <Filter>Source Files\Engine\Rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\src\pch.h">
@@ -265,6 +271,12 @@
     </ClInclude>
     <ClInclude Include="External\GLAD\glad.h">
       <Filter>External\glad</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\src\Rendering\Cubemap.h">
+      <Filter>Header Files\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\src\Rendering\Skybox.h">
+      <Filter>Header Files\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
