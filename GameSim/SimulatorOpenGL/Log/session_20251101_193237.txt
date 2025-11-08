@@ -1,0 +1,3 @@
+[2025-11-01 19:32:37] [INFO / WindowManager.cpp::init]: Initializing GLWindow: Width=1920, Height=1080, Header=Simulator V0.1
+[2025-11-01 19:32:37] [INFO / OpenGLContext.cpp::init]: init() Called!
+[2025-11-01 19:32:37] [INFO / OpenGLContext.cpp::init]: 
