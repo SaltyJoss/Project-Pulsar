@@ -1,7 +1,7 @@
 #pragma once
 
 #include "RenderBase.h"
-#include "UI/Styles.h"
+#include "Scene/Styles.h"
 
 extern Debug gLog; // Global Variable for debugging and logs
 

@@ -1,13 +1,13 @@
 /*#ifndef GUI_MANAGER_H
 #define GUI_MANAGER_H
 
-#include "ch.h"
+#include "pch.h"
 #include "window.h"
 
-#include "UI/ControlPanel.h"
-#include "UI/SimulationPanels.h"
-#include "UI/DebugPanel.h"
-#include "UI/Styles.h"
+#include "Scene/ControlPanel.h"
+#include "Scene/SimulationPanels.h"
+#include "Scene/DebugPanel.h"
+#include "Scene/Styles.h"
 
 
 

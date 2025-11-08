@@ -1,10 +1,11 @@
 #pragma once
+#include "pch.h"
 
-#include "Elements/Light.h"
-#include "UI/SceneView.h"
+#include "Scene/Light.h"
+#include "Scene/SceneView.h"
 
 #include <imgui.h>
-#include "utils/imguiWidgets.h"
+#include "Platform/imguiWidgets.h"
 #include <imfilebrowser.h>
 
 extern Debug gLog; // Global Variable for debugging and logs

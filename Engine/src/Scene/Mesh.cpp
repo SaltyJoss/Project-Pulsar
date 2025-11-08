@@ -1,11 +1,11 @@
-#include "ch.h"
+#include "pch.h"
 #include "Mesh.h"
 
 #include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
 #include <assimp/scene.h>
 
-#include "Render/OpenGLBufferManager.h"
+#include "Rendering/OpenGLBufferManager.h"
 
 
 namespace elements {

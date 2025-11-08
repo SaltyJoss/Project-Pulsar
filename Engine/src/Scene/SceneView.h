@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Elements/Camera.h"
-#include "Elements/Mesh.h"
-#include "Elements/Light.h"
-#include "shader/shaderUtil.h"
-#include "render/openglBufferManager.h"
-#include "Elements/Input.h"
-#include "Elements/Object.h"
+#include "Scene/Camera.h"
+#include "Scene/Mesh.h"
+#include "Scene/Light.h"
+#include "Rendering/shaderUtil.h"
+#include "Rendering/openglBufferManager.h"
+#include "Scene/Input.h"
+#include "Scene/Object.h"
 
 extern Debug gLog; // Global Variable for debugging and logs
 

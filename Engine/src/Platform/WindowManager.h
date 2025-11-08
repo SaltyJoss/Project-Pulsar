@@ -1,19 +1,19 @@
 #pragma once
 
-#include "Window/Window.h"
+#include "Platform/Window.h"
 
-#include "Render/GUIContext.h"
-#include "Render/OpenGLContext.h"
-#include "Render/OpenGLBufferManager.h"
+#include "Rendering/GUIContext.h"
+#include "Rendering/OpenGLContext.h"
+#include "Rendering/OpenGLBufferManager.h"
 
-#include "UI/SceneView.h"
-#include "UI/DebugPanel.h"
-#include "UI/ControlPanel.h"
+#include "Scene/SceneView.h"
+#include "Scene/DebugPanel.h"
+#include "Scene/ControlPanel.h"
 
-#include "Elements/Camera.h"
-#include "Elements/Light.h"
-#include "Elements/Mesh.h"
-#include "Shader/ShaderUtil.h"
+#include "Scene/Camera.h"
+#include "Scene/Light.h"
+#include "Scene/Mesh.h"
+#include "Rendering/ShaderUtil.h"
 
 using namespace render;
 using namespace gui;

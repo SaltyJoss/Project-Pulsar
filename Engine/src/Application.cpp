@@ -1,7 +1,7 @@
 #include "pch.h"
 
 #include "Application.h"
-#include "Window/WindowManager.h"
+#include "Platform/WindowManager.h"
 
 Application::Application(const std::string& appName) {
 	_window = std::make_unique<window::GLWindow>();

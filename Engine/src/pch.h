@@ -11,7 +11,7 @@
 #include <ctime>
 
 // GL includes
-#include <GL/glew.h>
+#include <glew.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -23,7 +23,7 @@
 #include <glm/gtx/transform.hpp>
 
 // Debugging
-#include "Utils/Logger.h"
+#include "Platform/Logger.h"
 
 
 // Global logger declared elsewhere

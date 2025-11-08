@@ -4,7 +4,7 @@
 #include <glm/gtx/quaternion.hpp>
 
 #include "Element.h"
-#include "Shader/ShaderUtil.h"
+#include "Rendering/ShaderUtil.h"
 #include "Input.h"
 #include "Mesh.h"
 

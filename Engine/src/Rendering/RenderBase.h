@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Window/Window.h"
-#include "Elements/VertexHolder.h"
+#include "Platform/Window.h"
+#include "Scene/VertexHolder.h"
 
 namespace render {
 	class VertexIndexBuffer {

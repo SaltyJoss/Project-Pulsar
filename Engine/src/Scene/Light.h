@@ -1,9 +1,9 @@
 #pragma once
 
-#include "ch.h"
+#include "pch.h"
 
 #include "Element.h"
-#include "Shader/ShaderUtil.h"
+#include "Rendering/ShaderUtil.h"
 
 extern Debug gLog; // Global Variable for debugging and logs
 

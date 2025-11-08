@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Shader/ShaderUtil.h"
+#include "Rendering/ShaderUtil.h"
 
 namespace elements {
 	class Element {

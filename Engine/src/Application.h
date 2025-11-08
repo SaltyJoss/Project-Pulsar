@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Window/GUIManager.h"
-#include "Window/WindowManager.h"
-#include "Elements/Camera.h"
+#include "Platform/GUIManager.h"
+#include "Platform/WindowManager.h"
+#include "Scene/Camera.h"
 
 class Application
 {

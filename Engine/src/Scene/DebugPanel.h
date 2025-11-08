@@ -2,7 +2,7 @@
 
 #include "imgui.h"
 #include "SceneView.h"
-#include "Elements/Camera.h"
+#include "Scene/Camera.h"
 
 extern Debug gLog; // Global Variable for debugging and logs
 

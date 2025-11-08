@@ -43,9 +43,6 @@
     <Filter Include="Source Files\Engine\Platform">
       <UniqueIdentifier>{d43eca4c-bece-4348-bfa7-79ca4a4e11f3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\external">
-      <UniqueIdentifier>{97503957-d857-436d-bd4d-bd20339a6d03}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Platform">
       <UniqueIdentifier>{908ca258-62ed-45bb-9d29-63f9e2148369}</UniqueIdentifier>
     </Filter>
@@ -54,6 +51,15 @@
     </Filter>
     <Filter Include="Header Files\Physics">
       <UniqueIdentifier>{500a7981-e36b-48b9-b9a4-679fd855e8ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External">
+      <UniqueIdentifier>{a5193cd0-207f-4ebc-b82b-b995201af49b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\imgui">
+      <UniqueIdentifier>{196b4d27-a52c-41aa-b6ce-f24e67146634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\glad">
+      <UniqueIdentifier>{2e32dde6-4cff-4214-ae11-9e00a37a9ab2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -84,9 +90,6 @@
     <ClCompile Include="Engine\src\Scene\TitleBarPanel.cpp">
       <Filter>Source Files\Engine\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\src\3rdParty\glad.c">
-      <Filter>Source Files\Engine\external</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\src\Platform\GUIManager.cpp">
       <Filter>Source Files\Engine\Platform</Filter>
     </ClCompile>
@@ -113,6 +116,30 @@
     </ClCompile>
     <ClCompile Include="Engine\src\Assets\importObj.cpp">
       <Filter>Source Files\Engine\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_demo.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_draw.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_impl_glfw.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_impl_opengl3.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_tables.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_widgets.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\GLAD\glad.c">
+      <Filter>External\glad</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +235,36 @@
     </ClInclude>
     <ClInclude Include="Engine\src\Assets\importObj.h">
       <Filter>Header Files\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imconfig.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imgui.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imgui_impl_glfw.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imgui_impl_opengl3.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imgui_impl_opengl3_loader.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imgui_internal.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imstb_rectpack.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imstb_textedit.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imstb_truetype.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\GLAD\glad.h">
+      <Filter>External\glad</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

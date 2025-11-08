@@ -1,6 +1,6 @@
 #pragma once
-#include "ch.h"
-#include "Elements/Mesh.h"
+#include "pch.h"
+#include "Scene/Mesh.h"
 
 namespace mesh_import {
 

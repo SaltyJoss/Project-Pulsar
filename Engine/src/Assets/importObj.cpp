@@ -1,7 +1,7 @@
-#include "ch.h"
+#include "pch.h"
 #include "importObj.h"
-#include "Elements/VertexHolder.h"
-#include "Utils/str_utils.h"
+#include "Scene/VertexHolder.h"
+#include "Platform/str_utils.h"
 
 namespace mesh_import
 {

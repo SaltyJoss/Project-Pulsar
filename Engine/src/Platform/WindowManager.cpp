@@ -1,7 +1,7 @@
-#include "ch.h"
+#include "pch.h"
 
 #include "WindowManager.h"
-#include "Elements/Input.h"
+#include "Scene/Input.h"
 
 namespace window {
     GLWindow::~GLWindow() { _renderCntx->end(); _GUICntx->end(); LOG_INFO("GLWindow destroyed, rendering and GUI contexts ended");}
