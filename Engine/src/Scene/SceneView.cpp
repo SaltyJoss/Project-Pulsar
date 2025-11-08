@@ -16,7 +16,7 @@ namespace gui{
 		
 		_frameBuffer->unbind();
 
-		ImGui::Begin("Simulation");
+		ImGui::Begin("Game Engine");
 
 		_isHovered = ImGui::IsWindowHovered(ImGuiHoveredFlags_RootAndChildWindows);
 		ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();

@@ -93,9 +93,6 @@
     <ClCompile Include="Engine\src\Scene\TitleBarPanel.cpp">
       <Filter>Source Files\Engine\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\src\Platform\GUIManager.cpp">
-      <Filter>Source Files\Engine\Platform</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\src\Platform\WindowManager.cpp">
       <Filter>Source Files\Engine\Platform</Filter>
     </ClCompile>
@@ -280,6 +277,9 @@
     </ClInclude>
     <ClInclude Include="External\stb\stb_image.h">
       <Filter>External\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\src\Scene\FpsCounter.h">
+      <Filter>Header Files\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -157,7 +157,6 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
   <ItemGroup>
     <ClCompile Include="Engine\src\Application.cpp" />
     <ClCompile Include="Engine\src\Assets\importObj.cpp" />
-    <ClCompile Include="Engine\src\Platform\GUIManager.cpp" />
     <ClCompile Include="Engine\src\Platform\WindowManager.cpp" />
     <ClCompile Include="Engine\src\Rendering\Cubemap.cpp" />
     <ClCompile Include="Engine\src\Rendering\GUIContext.cpp" />
@@ -209,6 +208,7 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     <ClInclude Include="Engine\src\Scene\DebugPanel.h" />
     <ClInclude Include="Engine\src\Scene\Element.h" />
     <ClInclude Include="Engine\src\Scene\Face.h" />
+    <ClInclude Include="Engine\src\Scene\FpsCounter.h" />
     <ClInclude Include="Engine\src\Scene\Input.h" />
     <ClInclude Include="Engine\src\Scene\Light.h" />
     <ClInclude Include="Engine\src\Scene\Mesh.h" />
