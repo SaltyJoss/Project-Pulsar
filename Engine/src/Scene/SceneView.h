@@ -10,6 +10,7 @@
 #include "Rendering/Skybox.h"
 #include "Rendering/shaderUtil.h"
 #include "Rendering/openglBufferManager.h"
+#include "FpsCounter.h"
 
 extern Debug gLog; // Global Variable for debugging and logs
 
@@ -122,6 +123,8 @@ namespace gui {
         std::shared_ptr<elements::Mesh> _checkerPlane;
         std::shared_ptr<elements::Mesh> createCheckerPlane(float size = 50.0f);
         std::shared_ptr<elements::Mesh> _mesh;
+
+        gui::FpsCounter _fpsCounter;
 
         glm::vec2 _size;
         glm::vec2 _lastMousePos;
