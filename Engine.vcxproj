@@ -155,79 +155,7 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\src\Application.cpp" />
-    <ClCompile Include="Engine\src\Assets\importObj.cpp" />
-    <ClCompile Include="Engine\src\Platform\WindowManager.cpp" />
-    <ClCompile Include="Engine\src\Rendering\Cubemap.cpp" />
-    <ClCompile Include="Engine\src\Rendering\GUIContext.cpp" />
-    <ClCompile Include="Engine\src\Rendering\OpenGLBufferManager.cpp" />
-    <ClCompile Include="Engine\src\Rendering\OpenGLContext.cpp" />
-    <ClCompile Include="Engine\src\Rendering\shaderClass.cpp" />
-    <ClCompile Include="Engine\src\Rendering\ShaderUtil.cpp" />
-    <ClCompile Include="Engine\src\Rendering\SimulationManager.cpp" />
-    <ClCompile Include="Engine\src\Rendering\Skybox.cpp" />
-    <ClCompile Include="Engine\src\Scene\ControlPanel.cpp" />
-    <ClCompile Include="Engine\src\Scene\DebugPanel.cpp" />
-    <ClCompile Include="Engine\src\Scene\Mesh.cpp" />
-    <ClCompile Include="Engine\src\Scene\SceneView.cpp" />
-    <ClCompile Include="Engine\src\Scene\SimulationPanels.cpp" />
-    <ClCompile Include="Engine\src\Scene\Styles.cpp" />
-    <ClCompile Include="Engine\src\Scene\TitleBarPanel.cpp" />
-    <ClCompile Include="External\GLAD\glad.c" />
-    <ClCompile Include="External\imgui\imgui.cpp" />
-    <ClCompile Include="External\imgui\imgui_demo.cpp" />
-    <ClCompile Include="External\imgui\imgui_draw.cpp" />
-    <ClCompile Include="External\imgui\imgui_impl_glfw.cpp" />
-    <ClCompile Include="External\imgui\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="External\imgui\imgui_tables.cpp" />
-    <ClCompile Include="External\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="External\stb\std_image.cpp" />
     <ClCompile Include="Game\src\Main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Engine\src\Application.h" />
-    <ClInclude Include="Engine\src\Assets\importBase.h" />
-    <ClInclude Include="Engine\src\Assets\importObj.h" />
-    <ClInclude Include="Engine\src\pch.h" />
-    <ClInclude Include="Engine\src\Platform\imguiWidgets.h" />
-    <ClInclude Include="Engine\src\Platform\Logger.h" />
-    <ClInclude Include="Engine\src\Platform\str_utils.h" />
-    <ClInclude Include="Engine\src\Platform\Window.h" />
-    <ClInclude Include="Engine\src\Platform\WindowManager.h" />
-    <ClInclude Include="Engine\src\Rendering\Cubemap.h" />
-    <ClInclude Include="Engine\src\Rendering\GUIContext.h" />
-    <ClInclude Include="Engine\src\Rendering\OpenGLBufferManager.h" />
-    <ClInclude Include="Engine\src\Rendering\OpenGLContext.h" />
-    <ClInclude Include="Engine\src\Rendering\RenderBase.h" />
-    <ClInclude Include="Engine\src\Rendering\shaderClass.h" />
-    <ClInclude Include="Engine\src\Rendering\ShaderUtil.h" />
-    <ClInclude Include="Engine\src\Rendering\Skybox.h" />
-    <ClInclude Include="Engine\src\Scene\Camera.h" />
-    <ClInclude Include="Engine\src\Scene\ControlPanel.h" />
-    <ClInclude Include="Engine\src\Scene\DebugLogEntry.h" />
-    <ClInclude Include="Engine\src\Scene\DebugPanel.h" />
-    <ClInclude Include="Engine\src\Scene\Element.h" />
-    <ClInclude Include="Engine\src\Scene\Face.h" />
-    <ClInclude Include="Engine\src\Scene\FpsCounter.h" />
-    <ClInclude Include="Engine\src\Scene\Input.h" />
-    <ClInclude Include="Engine\src\Scene\Light.h" />
-    <ClInclude Include="Engine\src\Scene\Mesh.h" />
-    <ClInclude Include="Engine\src\Scene\Object.h" />
-    <ClInclude Include="Engine\src\Scene\SceneView.h" />
-    <ClInclude Include="Engine\src\Scene\SimulationPanels.h" />
-    <ClInclude Include="Engine\src\Scene\Styles.h" />
-    <ClInclude Include="Engine\src\Scene\VertexHolder.h" />
-    <ClInclude Include="External\GLAD\glad.h" />
-    <ClInclude Include="External\imgui\imconfig.h" />
-    <ClInclude Include="External\imgui\imgui.h" />
-    <ClInclude Include="External\imgui\imgui_impl_glfw.h" />
-    <ClInclude Include="External\imgui\imgui_impl_opengl3.h" />
-    <ClInclude Include="External\imgui\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="External\imgui\imgui_internal.h" />
-    <ClInclude Include="External\imgui\imstb_rectpack.h" />
-    <ClInclude Include="External\imgui\imstb_textedit.h" />
-    <ClInclude Include="External\imgui\imstb_truetype.h" />
-    <ClInclude Include="External\stb\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Engine\assets\shaders\fs_pbr.frag.glsl" />
