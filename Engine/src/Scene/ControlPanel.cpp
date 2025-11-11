@@ -10,6 +10,8 @@ void gui::ControlPanel::render(gui::SceneView* sceneView) {
 
     ImGui::SetNextWindowPos(ImVec2(10, 10), ImGuiCond_FirstUseEver);
     ImGui::SetNextWindowSize(ImVec2(300, 400), ImGuiCond_FirstUseEver);
+
+    ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.129f, 0.129f, 0.129f, 0.8f));
     ImGui::Begin("Control Panel", nullptr, ImGuiWindowFlags_NoCollapse);
 
     if (ImGui::Button("Open")) { _fileDialog.Open(); LOG_INFO("File dialog opened"); }
@@ -21,6 +23,7 @@ void gui::ControlPanel::render(gui::SceneView* sceneView) {
     if (ImGui::CollapsingHeader("Display Settings")) { renderDisplaySettings(); }
 
     ImGui::End();
+    ImGui::PopStyleColor();
 
     _fileDialog.Display();
     if (_fileDialog.HasSelected()) {
@@ -28,7 +31,7 @@ void gui::ControlPanel::render(gui::SceneView* sceneView) {
         _currentFile = file_path.substr(file_path.find_last_of("/\\") + 1);
         _meshLoadCallback(file_path);
         LOG_INFO("Mesh loaded from file: %s", _currentFile.c_str());
-
+        
         _fileDialog.ClearSelected();
     }
 }
