@@ -106,6 +106,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Tests\test_camera.cpp" />
+    <ClCompile Include="Tests\test_import_obj.cpp" />
+    <ClCompile Include="Tests\test_math.cpp" />
+    <ClCompile Include="Tests\test_scene.cpp" />
+    <ClCompile Include="Tests\test_shader_util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

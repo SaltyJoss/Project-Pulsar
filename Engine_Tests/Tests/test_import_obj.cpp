@@ -1,5 +1,4 @@
 #include "gtest/gtest.h"
-#include "import/obj_importer.h"
 
 TEST(ImportTest, SimpleObjLoads) {
     ObjModel m = ImportObj("cube.obj");
