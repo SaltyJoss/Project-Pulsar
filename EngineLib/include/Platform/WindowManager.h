@@ -1,78 +1,61 @@
 #pragma once
-
-#include "EngineCore.h"
-
+#include "EngineLib/Export.h"
 #include "Platform/Window.h"
 
-#include "Rendering/GUIContext.h"
-#include "Rendering/OpenGLContext.h"
-#include "Rendering/OpenGLBufferManager.h"
+// forward declares
+struct GLFWwindow;
 
-#include "Scene/SceneView.h"
-#include "Scene/DebugPanel.h"
-#include "Scene/ControlPanel.h"
-
-#include "Scene/Camera.h"
-#include "Scene/Light.h"
-#include "Scene/Mesh.h"
-#include "Rendering/ShaderUtil.h"
-
-using namespace render;
-using namespace gui;
-using namespace elements;
-using namespace shaders;
-
-/*class WindowManager {
-private:
-    GLFWwindow* _window;
-    int lastX, lastY, lastW, lastH;
-    bool isMaximised = false;
-
-public:
-
-    void SetupWindow(GLFWwindow* window) { _window = window; }
-    ~WindowManager() = default;
-
-    GLFWwindow* GetWindow() const { return _window; }
-
-    void Render();
-
-};*/
-
-extern Debug gLog; // Global Variable for debugging and logs
+namespace render { 
+    class GUIContext; 
+    class OpenGLContext; 
+}
+namespace gui { 
+    class SceneView; 
+    class ControlPanel; 
+    class DebugPanel; 
+}
 
 namespace window {
-    class GLWindow : public IWindow {
+    class ENGINE_API GLWindow : public IWindow {
     public:
-        GLWindow() : _isRunning(true), _window(nullptr) {
-            _GUICntx = std::make_unique<GUIContext>();
-            _renderCntx = std::make_unique<OpenGLContext>();
-        }
-
+        GLWindow();
         ~GLWindow();
 
-        bool init(int width, int height, const std::string& header);
-        void render();
-        void inputHandler();
-        void* getNativeWin() override { return _window; }
-        void setNativeWin(void* window) { _window = (GLFWwindow*)window; }
+        bool init(int width, int height, const std::string& title) override;
 
-        void onScroll(double delta) override;
+        // IWindow interface
+        bool isRunning() const override;
+        bool shouldClose() const override;
+        void pollEvents() override;
+        void swapBuffers() override;
+
+        void* getNativeWin() override;
+        void setNativeWin(void* window) override;
+
+        int getWidth() const override;
+        int getHeight() const override;
+        const std::string& getHeader() const override;
+
         void onKey(int key, int scancode, int action, int mods) override;
+        void onScroll(double delta) override;
         void onResize(int width, int height) override;
         void onClose() override;
-        bool isRunning() { return _isRunning; }
+
+        void render();
 
     private:
-        bool _isRunning;
+        bool _isRunning = true;
+        GLFWwindow* _window = nullptr;
 
-        GLFWwindow* _window;
+        std::unique_ptr<render::GUIContext> _GUICntx;
+        std::unique_ptr<render::OpenGLContext> _renderCntx;
 
-        std::unique_ptr<GUIContext> _GUICntx;
-        std::unique_ptr<OpenGLContext> _renderCntx;
+        std::unique_ptr<gui::SceneView> _sceneView;
+        std::unique_ptr<gui::ControlPanel> _controlPanel;
+        std::unique_ptr<gui::DebugPanel> _debugPanel;
 
-        std::unique_ptr<SceneView> _sceneView;
-        std::unique_ptr<ControlPanel> _controlPanel;
-        std::unique_ptr<DebugPanel> _debugPanel;
+        int _width = 0;
+        int _height = 0;
+        std::string _header;
     };
 }

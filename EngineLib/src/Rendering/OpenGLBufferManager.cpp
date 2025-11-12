@@ -1,5 +1,6 @@
 
 #include "pch.h"
+#include <glew.h>
 
 #include "Rendering/OpenGLBufferManager.h"
 

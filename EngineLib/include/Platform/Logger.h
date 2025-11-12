@@ -1,5 +1,5 @@
 
-#include "EngineCore.h"
+#pragma once
 
 #include <filesystem>
 #include <stdarg.h>

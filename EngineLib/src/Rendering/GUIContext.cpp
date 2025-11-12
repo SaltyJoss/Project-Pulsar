@@ -1,5 +1,8 @@
 
 #include "pch.h"
+#include <glew.h>
+#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 #include "Rendering/GUIContext.h"
 

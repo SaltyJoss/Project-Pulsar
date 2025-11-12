@@ -1,10 +1,9 @@
 #pragma once
-
-#include "EngineCore.h"
+#include <GLFW/glfw3.h>
+#include <cstdint>
 
 namespace elements {
 	enum class eInputButton {
-	// Mouse Buttons
 		Left = 0,
 		Right = 1,
 		Middle = 2,
@@ -13,15 +12,10 @@ namespace elements {
 
 	class Input {
 	public:
-		static eInputButton GetPressedButton(GLFWwindow* window) {
-			eInputButton result = eInputButton::None;
+		static eInputButton GetPressedButton(GLFWwindow* window);
 
-			if (glfwGetMouseButton(window, 0)	   == GLFW_PRESS)	{ return eInputButton::Left; }
-			else if (glfwGetMouseButton(window, 1) == GLFW_PRESS)	{ return eInputButton::Right; }
-			else if (glfwGetMouseButton(window, 2) == GLFW_PRESS)	{ return eInputButton::Middle; }
-
-			return eInputButton::None;
-		}
+	private:
+		Input() = default;
 	};
 	
 }

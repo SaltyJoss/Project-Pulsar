@@ -1,5 +1,8 @@
 
 #include "pch.h"
+#include <glew.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #include "Rendering/OpenGLContext.h"
 
@@ -28,10 +31,7 @@ namespace render {
 		LOG_INFO("init() Called!");
 		__super::init(window);
 
-		fprintf(stderr, "[INSIDE OpenGLContext::Init()]Width: %d, Height: %d, Header: %s\n", window->_width, window->_height, window->_header.c_str());
-		LOG_INFO("");
-
-		if (!window->_width || !window->_height) {
+		if (!window->getWidth() || !window->getHeight()) {
 			LOG_ERROR("Window dimensions not set!");
 			return false;
 		}
@@ -41,7 +41,7 @@ namespace render {
 			return false; 
 		}
 
-		auto glWindow = glfwCreateWindow(window->_width, window->_height, window->_header.c_str(), nullptr, nullptr);
+		auto glWindow = glfwCreateWindow(window->getWidth(), window->getWidth(), window->getHeader().c_str(), nullptr, nullptr);
 		window->setNativeWin(glWindow);
 
 		if (!glWindow) { 
@@ -76,7 +76,7 @@ namespace render {
 	}
 
 	void render::OpenGLContext::preRender() {
-		glViewport(0, 0, _window->_width, _window->_height);
+		glViewport(0, 0, _window->getWidth(), _window->getHeight());
 		glClearColor(0.33f, 0.33f, 0.33f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}

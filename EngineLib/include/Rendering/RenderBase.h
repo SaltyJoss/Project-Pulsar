@@ -5,9 +5,14 @@
 #include "Platform/Window.h"
 #include "Scene/VertexHolder.h"
 
+#include <cstdint>
+using GLuint = std::uint32_t;
+
 namespace render {
 	class VertexIndexBuffer {
 	public:
+		virtual ~VertexIndexBuffer() = default;
+
 		// Replaces and Centralises old VAO, VBO, EBO classes -> See OpenGLBufferManager
 		VertexIndexBuffer() : _VAO{ 0 }, _VBO{ 0 }, _EBO{ 0 } {}
 
@@ -25,6 +30,8 @@ namespace render {
 
 	class FrameBuffer {
 	public:
+		virtual ~FrameBuffer() = default;
+
 		// This was NOT working in previous version, so revised code with docs and research -> See OpenGLBufferManager
 		FrameBuffer() : _FBO{ 0 }, _depthID{ 0 } {}
 
@@ -45,6 +52,8 @@ namespace render {
 
 	class RenderContext {
 	public:
+		virtual ~RenderContext() = default;
+
 		// Centeralised way to gain context on the renders' process -> see OpenGLContext
 		RenderContext() : _window(nullptr) {}
 

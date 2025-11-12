@@ -1,48 +1,109 @@
 
 #include "pch.h"
+#include <glew.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
+#include "Platform/Window.h"
+
+#include "Rendering/GUIContext.h"
+#include "Rendering/OpenGLContext.h"
+#include "Rendering/OpenGLBufferManager.h"
+#include "Rendering/ShaderUtil.h"
+
+#include "Scene/SceneView.h"
+#include "Scene/DebugPanel.h"
+#include "Scene/ControlPanel.h"
+
+#include "Scene/Camera.h"
+#include "Scene/Light.h"
+#include "Scene/Input.h"
+#include "Scene/Mesh.h"
 
 #include "Platform/WindowManager.h"
-#include "Scene/Input.h"
+
 
 namespace window {
-    GLWindow::~GLWindow() { _renderCntx->end(); _GUICntx->end(); LOG_INFO("GLWindow destroyed, rendering and GUI contexts ended");}
+    GLWindow::GLWindow() = default;
 
-    bool GLWindow::init(int width, int height, const std::string& header) {
-        _width = width;
-        _height = height;
-        _header = header;
-        LOG_INFO("Initializing GLWindow: Width=%d, Height=%d, Header=%s", width, height, header.c_str());
+    GLWindow::~GLWindow() { 
+        _renderCntx->end();
+        _GUICntx->end();
+        
+        if (_window) { glfwDestroyWindow(_window); }
 
-        _renderCntx->init(this);
-        _GUICntx->init(this);
-        LOG_INFO("Render context initialized");
+        glfwTerminate();
 
-        _winSize = ImGui::GetIO().DisplaySize;
-        _padding = ImGui::GetStyle().WindowPadding;
-        LOG_INFO("GUI context initialized");
-
-        _sceneView = std::make_unique<SceneView>();
-        _controlPanel = std::make_unique<ControlPanel>(_sceneView.get());
-        _debugPanel = std::make_unique<DebugPanel>();
-        LOG_INFO("SceneView, ControlPanel, DebugPanel created");
-
-        _controlPanel->setMeshLoadCallback([this](std::string path) { _sceneView->loadMesh(path); LOG_INFO("Mesh load callback triggered for path: %s", path.c_str()); });
-
-        return _isRunning;
+        LOG_INFO("GLWindow destroyed, rendering and GUI contexts ended");
     }
 
     void GLWindow::render() {
         _renderCntx->preRender();
         _GUICntx->preRender();
 
-        _sceneView->render();
-        _controlPanel->render(_sceneView.get());
-        _debugPanel->render();
+        if (_sceneView)     _sceneView->render();
+        if (_controlPanel)  _controlPanel->render(_sceneView.get());
+        if (_debugPanel)    _debugPanel->render();
 
         _GUICntx->postRender();
         _renderCntx->postRender();
+    }
 
-        inputHandler();
+    bool GLWindow::init(int width, int height, const std::string& header) {
+        _width = width;
+        _height = height;
+        _header = header;
+
+        if (!glfwInit()) {
+            LOG_ERROR("GLFW init failed");
+            _isRunning = false;
+            return false;
+        }
+
+        // GLFW minimum OpenGL config
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+        // Create the window
+        _window = glfwCreateWindow(_width, _height, _header.c_str(), nullptr, nullptr);
+        if (!_window) {
+            LOG_ERROR("Failed to create GLFW window");
+            glfwTerminate();
+            _isRunning = false;
+            return false;
+        }
+
+        glfwMakeContextCurrent(_window);
+
+        // Load GL
+        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+            LOG_ERROR("Failed to load GLAD");
+            _isRunning = false;
+            return false;
+        }
+
+        // Context layers
+        _renderCntx = std::make_unique<render::OpenGLContext>();
+        _renderCntx->init(this);
+
+        _GUICntx = std::make_unique<render::GUIContext>();
+        _GUICntx->init(this);
+
+        // UI + scene
+        _sceneView = std::make_unique<gui::SceneView>();
+        _controlPanel = std::make_unique<gui::ControlPanel>(_sceneView.get());
+        _debugPanel = std::make_unique<gui::DebugPanel>();
+
+        _controlPanel->setMeshLoadCallback([this](std::string path)
+            {
+                _sceneView->loadMesh(path);
+                LOG_INFO("Mesh loaded: %s", path.c_str());
+            }
+        );
+
+        _isRunning = true;
+        return true;
     }
 
     void GLWindow::onResize(int width, int height) {
@@ -55,17 +116,53 @@ namespace window {
         render();
     }
 
-    void GLWindow::inputHandler() {
-        if (glfwGetKey(_window, GLFW_KEY_W) == GLFW_PRESS) { _sceneView->onMouseWheel(-0.4f); }
-        if (glfwGetKey(_window, GLFW_KEY_S) == GLFW_PRESS) { _sceneView->onMouseWheel(0.4f); }
-        if (glfwGetKey(_window, GLFW_KEY_F) == GLFW_PRESS) { _sceneView->resetView(); }
-
-        double x, y;
-        glfwGetCursorPos(_window, &x, &y);
-        _sceneView->onMouseMove(x, y, Input::GetPressedButton(_window));
+    bool GLWindow::isRunning() const {
+        return _isRunning;
     }
 
-    void GLWindow::onScroll(double delta) { _sceneView->onMouseWheel(delta); }
-    void GLWindow::onKey(int key, int scancode, int action, int mods) { if (action == GLFW_PRESS) {} }
-    void GLWindow::onClose() { _isRunning = false; LOG_WARN("Window closed, stopping main loop"); }
+    bool GLWindow::shouldClose() const {
+        return glfwWindowShouldClose(_window);
+    }
+
+    void GLWindow::pollEvents() {
+        glfwPollEvents();
+    }
+
+    void GLWindow::swapBuffers() {
+        glfwSwapBuffers(_window);
+    }
+
+    void GLWindow::onKey(int key, int scancode, int action, int mods) {
+		// Will handle key events here
+    }
+
+    void GLWindow::onClose() {
+        _isRunning = false;
+    }
+
+    void* window::GLWindow::getNativeWin() {
+        return _window;
+    }
+
+    void window::GLWindow::setNativeWin(void* window) {
+        _window = static_cast<GLFWwindow*>(window);
+    }
+
+    void window::GLWindow::onScroll(double delta) {
+        if (_sceneView)
+            _sceneView->onMouseWheel(delta);
+    }
+
+    int window::GLWindow::getWidth() const {
+        return _width;
+    }
+
+    int window::GLWindow::getHeight() const {
+        return _height;
+    }
+
+    const std::string& window::GLWindow::getHeader() const {
+        return _header;
+    }
+
 }

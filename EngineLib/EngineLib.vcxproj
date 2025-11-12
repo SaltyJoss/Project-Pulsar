@@ -90,7 +90,7 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;ENGINELIB_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ENGINE_LIB_BUILD;_DEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -111,7 +111,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;ENGINELIB_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ENGINE_LIB_BUILD;_DEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -130,7 +130,7 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;ENGINELIB_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ENGINE_LIB_BUILD;_DEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -151,7 +151,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;ENGINELIB_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ENGINE_LIB_BUILD;_DEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -183,6 +183,7 @@
     <ClInclude Include="include\Assets\importBase.h" />
     <ClInclude Include="include\Assets\importObj.h" />
     <ClInclude Include="include\EngineCore.h" />
+    <ClInclude Include="include\EngineLib\Export.h" />
     <ClInclude Include="include\Platform\imguiWidgets.h" />
     <ClInclude Include="include\Platform\Logger.h" />
     <ClInclude Include="include\Platform\str_utils.h" />
@@ -276,6 +277,7 @@
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\Assets\importObj.cpp" />
     <ClCompile Include="src\EngineCore.cpp" />
+    <ClCompile Include="src\Platform\Logger.cpp" />
     <ClCompile Include="src\Platform\WindowManager.cpp" />
     <ClCompile Include="src\Rendering\Cubemap.cpp" />
     <ClCompile Include="src\Rendering\GUIContext.cpp" />
@@ -285,6 +287,7 @@
     <ClCompile Include="src\Rendering\Skybox.cpp" />
     <ClCompile Include="src\Scene\ControlPanel.cpp" />
     <ClCompile Include="src\Scene\DebugPanel.cpp" />
+    <ClCompile Include="src\Scene\Input.cpp" />
     <ClCompile Include="src\Scene\Mesh.cpp" />
     <ClCompile Include="src\Scene\SceneView.cpp" />
     <ClCompile Include="src\Scene\Styles.cpp" />

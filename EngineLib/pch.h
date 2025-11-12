@@ -20,11 +20,10 @@
 #include <memory>
 #include <ctime>
 #include <array>
-
-// GL includes
-#include <glew.h>
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include <iomanip>
+#include <mutex>
+#include <filesystem>
+#include <chrono>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

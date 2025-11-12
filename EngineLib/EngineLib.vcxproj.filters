@@ -55,6 +55,9 @@
     <Filter Include="External\stb">
       <UniqueIdentifier>{8ba329bc-c4a9-4020-bdb3-0a578c3a0bdb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\include\EngineLib">
+      <UniqueIdentifier>{1827a04a-13b7-4b24-b434-cc50c7a74428}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -186,6 +189,9 @@
     <ClInclude Include="..\External\stb\stb_image.h">
       <Filter>External\stb</Filter>
     </ClInclude>
+    <ClInclude Include="include\EngineLib\Export.h">
+      <Filter>Header Files\include\EngineLib</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -265,6 +271,12 @@
     </ClCompile>
     <ClCompile Include="..\External\stb\std_image.cpp">
       <Filter>External\stb</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Logger.cpp">
+      <Filter>Source Files\src\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Input.cpp">
+      <Filter>Source Files\src\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

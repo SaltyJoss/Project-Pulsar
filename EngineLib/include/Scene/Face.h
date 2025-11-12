@@ -1,6 +1,9 @@
 #pragma once
 
 #include "EngineCore.h"
+#include <vector>
+
+using GLuint = unsigned int;
 
 namespace elements {
     class Face {

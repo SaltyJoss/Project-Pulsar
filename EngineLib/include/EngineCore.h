@@ -1,8 +1,8 @@
 #pragma once
 
 // Debugging
+#include "pch.h"
 #include "Platform/Logger.h"
-
 
 // Global logger declared elsewhere
 extern Debug gLog;

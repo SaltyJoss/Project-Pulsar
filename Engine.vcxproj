@@ -76,17 +76,18 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Engine\src;$(ProjectDir)External\assimp;$(ProjectDir)External\GLEW\GL;$(ProjectDir)External\GLFW;$(ProjectDir)External\GLM;$(ProjectDir)External\imgui\plugins;$(ProjectDir)External\imgui;$(ProjectDir)External;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)EngineLib;$(SolutionDir)EngineLib\include;$(SolutionDir)External\GLEW\GL;$(SolutionDir)External\GLM;$(SolutionDir)External\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)External\assimp\lib;$(ProjectDir)External\GLEW\lib;$(ProjectDir)External\GLFW\lib;$(ProjectDir)External\zlib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;glew32.lib;assimp-vc143-mtd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\bin\EngineLib\Debug\;$(SolutionDir)External\GLEW\lib;$(SolutionDir)External\assimp\lib;$(SolutionDir)\EngineLib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>EngineLib.lib;glew32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
+      <Command>xcopy /Y /D "$(SolutionDir)x64\Debug\EngineLib.dll" "$(TargetDir)"
+xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
 xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -98,17 +99,18 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Engine\src;$(ProjectDir)External\assimp;$(ProjectDir)External\GLEW\GL;$(ProjectDir)External\GLFW;$(ProjectDir)External\GLM;$(ProjectDir)External\imgui\plugins;$(ProjectDir)External\imgui;$(ProjectDir)External;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)EngineLib;$(SolutionDir)EngineLib\include;$(SolutionDir)External\GLEW\GL;$(SolutionDir)External\GLM;$(SolutionDir)External\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)External\assimp\lib;$(ProjectDir)External\GLEW\lib;$(ProjectDir)External\GLFW\lib;$(ProjectDir)External\zlib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;glew32.lib;assimp-vc143-mtd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\bin\EngineLib\Debug\;$(SolutionDir)External\GLEW\lib;$(SolutionDir)External\assimp\lib;$(SolutionDir)\EngineLib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>EngineLib.lib;glew32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
+      <Command>xcopy /Y /D "$(SolutionDir)x64\Debug\EngineLib.dll" "$(TargetDir)"
+xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
 xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -118,17 +120,18 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Engine\src;$(ProjectDir)External\assimp;$(ProjectDir)External\GLEW\GL;$(ProjectDir)External\GLFW;$(ProjectDir)External\GLM;$(ProjectDir)External\imgui\plugins;$(ProjectDir)External\imgui;$(ProjectDir)External;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)EngineLib;$(SolutionDir)EngineLib\include;$(SolutionDir)External\GLEW\GL;$(SolutionDir)External\GLM;$(SolutionDir)External\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)External\assimp\lib;$(ProjectDir)External\GLEW\lib;$(ProjectDir)External\GLFW\lib;$(ProjectDir)External\zlib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;glew32.lib;assimp-vc143-mtd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\bin\EngineLib\Debug\;$(SolutionDir)External\GLEW\lib;$(SolutionDir)External\assimp\lib;$(SolutionDir)\EngineLib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>EngineLib.lib;glew32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
+      <Command>xcopy /Y /D "$(SolutionDir)x64\Debug\EngineLib.dll" "$(TargetDir)"
+xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
 xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -140,17 +143,18 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Engine\src;$(ProjectDir)External\assimp;$(ProjectDir)External\GLEW\GL;$(ProjectDir)External\GLFW;$(ProjectDir)External\GLM;$(ProjectDir)External\imgui\plugins;$(ProjectDir)External\imgui;$(ProjectDir)External;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)EngineLib;$(SolutionDir)EngineLib\include;$(SolutionDir)External\GLEW\GL;$(SolutionDir)External\GLM;$(SolutionDir)External\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)External\assimp\lib;$(ProjectDir)External\GLEW\lib;$(ProjectDir)External\GLFW\lib;$(ProjectDir)External\zlib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;glew32.lib;assimp-vc143-mtd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\bin\EngineLib\Debug\;$(SolutionDir)External\GLEW\lib;$(SolutionDir)External\assimp\lib;$(SolutionDir)\EngineLib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>EngineLib.lib;glew32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
+      <Command>xcopy /Y /D "$(SolutionDir)x64\Debug\EngineLib.dll" "$(TargetDir)"
+xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
 xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
