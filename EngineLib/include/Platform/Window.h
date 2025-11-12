@@ -1,12 +1,13 @@
 #pragma once
 
 #include "EngineCore.h"
+#include "EngineLib/Export.h"
 
 #include <imgui.h>
 
 //Basic window interface
 namespace window {
-    class IWindow {
+    class ENGINE_API IWindow {
     public:
         virtual bool init(int width, int height, const std::string& title) = 0;
 

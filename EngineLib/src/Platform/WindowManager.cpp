@@ -24,7 +24,9 @@
 
 
 namespace window {
-    GLWindow::GLWindow() = default;
+    GLWindow::GLWindow() {
+        _header = new std::string();
+    }
 
     GLWindow::~GLWindow() { 
         _renderCntx->end();
@@ -33,6 +35,7 @@ namespace window {
         if (_window) { glfwDestroyWindow(_window); }
 
         glfwTerminate();
+        delete _header;
 
         LOG_INFO("GLWindow destroyed, rendering and GUI contexts ended");
     }
@@ -52,7 +55,7 @@ namespace window {
     bool GLWindow::init(int width, int height, const std::string& header) {
         _width = width;
         _height = height;
-        _header = header;
+        *_header = header;
 
         if (!glfwInit()) {
             LOG_ERROR("GLFW init failed");
@@ -66,7 +69,7 @@ namespace window {
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
         // Create the window
-        _window = glfwCreateWindow(_width, _height, _header.c_str(), nullptr, nullptr);
+        _window = glfwCreateWindow(_width, _height, _header->c_str(), nullptr, nullptr);
         if (!_window) {
             LOG_ERROR("Failed to create GLFW window");
             glfwTerminate();
@@ -162,7 +165,7 @@ namespace window {
     }
 
     const std::string& window::GLWindow::getHeader() const {
-        return _header;
+        return *_header;
     }
 
 }

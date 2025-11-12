@@ -56,6 +56,6 @@ namespace window {
 
         int _width = 0;
         int _height = 0;
-        std::string _header;
+        std::string *_header;
     };
 }
