@@ -107,9 +107,18 @@ namespace elements {
 			_viewMatrix = glm::inverse(_viewMatrix);
 		}
 
+		void moveForward(float delta);
+		void moveBackward(float delta);
+		void moveLeft(float delta);
+		void moveRight(float delta);
+
+		void processKeyboard(int key, float delta);
+		void processMouseMovement(float xoffset, float yoffset, bool constrainPitch = true);
+
 	private:
 		glm::mat4 _viewMatrix;
 		glm::mat4 _projection  = glm::mat4{ 1.0f };
+
 		glm::vec3 _position = { 0.0f, 0.0f, 0.0f };
 		glm::vec3 _focus = { 0.0f, 0.0f, 0.0f };
 

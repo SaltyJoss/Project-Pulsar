@@ -27,10 +27,10 @@ namespace gui{
 
 	SceneView::SceneView() :
 		_camera(nullptr), _frameBuffer(nullptr), _shader(nullptr), _light(nullptr),
-		_worldGridShader(nullptr), _shadowShader(nullptr), _size(3840, 2160)
+		_worldGridShader(nullptr), _shadowShader(nullptr), _size(1280, 720)
 	{
 		_frameBuffer = std::make_unique<render::OpenGLFrameBuffer>();
-		_frameBuffer->createBuffers(3840, 2160);
+		_frameBuffer->createBuffers(1280,720);
 
 		_shader = std::make_unique<shaders::Shader>();
 		_shader->load("Engine/assets/shaders/vs_pbr.vert.glsl", "Engine/assets/shaders/fs_pbr.frag.glsl");
@@ -322,6 +322,61 @@ namespace gui{
 			glm::mat4 view = _camera->getViewMatrix();
 			glm::mat4 projection = _camera->getProjection();
 			_skybox->render(view, projection);
+		}
+	}
+
+/*
+ * ------------------------------------------------
+ *				KEYBOARD & MOUSE INPUT
+ * ------------------------------------------------
+ */
+
+	void gui::SceneView::handleContinuousMovement(GLFWwindow* window, float dt) {
+		float kspd = 2.5f;
+
+		if (elements::Input::IsKeyPressed(window, GLFW_KEY_W)) {
+			processMovementKey(GLFW_KEY_W, kspd);
+		}
+		if (elements::Input::IsKeyPressed(window, GLFW_KEY_S)) {
+			processMovementKey(GLFW_KEY_S, kspd);
+		}
+		if (elements::Input::IsKeyPressed(window, GLFW_KEY_A)) {
+			processMovementKey(GLFW_KEY_A, kspd);
+		}
+		if (elements::Input::IsKeyPressed(window, GLFW_KEY_D)) {
+			processMovementKey(GLFW_KEY_D, kspd);
+		}
+	}
+
+	void gui::SceneView::handleMouseLook(GLFWwindow* window, double xpos, double ypos) {
+		static bool firstMouse = true;
+		static double lastX = 0.0, lastY = 0.0;
+
+		if (firstMouse) {
+			lastX = xpos;
+			lastY = ypos;
+			firstMouse = false;
+		}
+
+		double xoffset = xpos - lastX;
+		double yoffset = ypos - lastY; // Reversed since y-coordinates go from bottom to top
+		lastX = xpos;
+		lastY = ypos;
+
+		if (_controlMode == ControlMode::Camera) {
+			_camera->processMouseMovement(xoffset, yoffset);
+		}
+		else if (_controlMode == ControlMode::Object && _object) {
+			_object->onMouseMove(xpos, ypos, elements::eInputButton::Right);
+		}
+	}
+
+	void gui::SceneView::processMovementKey(int key, float delta) {
+		if (_controlMode == ControlMode::Camera) {
+			_camera->processKeyboard(key, delta);
+		}
+		else if (_controlMode == ControlMode::Object && _mesh) {
+			// Object movement logic can be added here!
 		}
 	}
 }

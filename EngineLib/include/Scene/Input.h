@@ -19,6 +19,9 @@ namespace elements {
 	public:
 		static eInputButton GetPressedButton(GLFWwindow* window);
 
+		static bool IsKeyPressed(GLFWwindow* window, int key);
+		static bool IsMouseButtonPressed(GLFWwindow* window, eInputButton button);
+
 	private:
 		Input() = default;
 	};

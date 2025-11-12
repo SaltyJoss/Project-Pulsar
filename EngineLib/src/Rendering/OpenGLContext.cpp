@@ -10,11 +10,17 @@
 #include "Rendering/OpenGLContext.h"
 
 #include "EngineLib/LogMacros.h"
+#include <Scene/SceneView.h>
 
 namespace render {
 	static void onKey_Callback(GLFWwindow* win, int  key, int scancode, int action, int mods) {
 		auto currentWindow = static_cast<window::IWindow*>(glfwGetWindowUserPointer(win));
 		currentWindow->onKey(key, scancode, action, mods);
+	}
+
+	static void CursorPos_Callback(GLFWwindow* win, double xpos, double ypos) {
+		auto currentWindow = static_cast<window::IWindow*>(glfwGetWindowUserPointer(win));
+		currentWindow->onCursorPos(xpos, ypos);
 	}
 
 	static void onScroll_Callback(GLFWwindow* win, double xoffset, double yoffset) {
@@ -46,17 +52,21 @@ namespace render {
 			return false; 
 		}
 
-		auto glWindow = glfwCreateWindow(window->getWidth(), window->getWidth(), window->getHeader().c_str(), nullptr, nullptr);
-		window->setNativeWin(glWindow);
+		auto glWindow = glfwCreateWindow(window->getWidth(), window->getHeight(), window->getHeader().c_str(), nullptr, nullptr);
+		glfwSetInputMode(glWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		glfwSetInputMode(glWindow, GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
 
-		if (!glWindow) { 
-			gLog.logError("OpenGL", "Failed to create GLFW window: ", glfwGetError(NULL));
+		if (!glWindow) {
 			LOG_ERROR("Failed to create GLFW window -> ", glfwGetError(NULL));
 			glfwTerminate();
 			return false;
 		}
 
+		window->setNativeWin(glWindow);
+		_glfwWindow = glWindow;
+
 		glfwSetWindowUserPointer(glWindow, window);
+		glfwSetCursorPosCallback(glWindow, CursorPos_Callback);
 		glfwSetKeyCallback(glWindow, onKey_Callback);
 		glfwSetScrollCallback(glWindow, onScroll_Callback);
 		glfwSetWindowSizeCallback(glWindow, onResize_Callback);

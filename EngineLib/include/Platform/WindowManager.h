@@ -43,11 +43,14 @@ namespace window {
         void onKey(int key, int scancode, int action, int mods) override;
         void onScroll(double delta) override;
         void onResize(int width, int height) override;
+        void onCursorPos(double xpos, double ypos) override;
         void onClose() override;
 
         void render();
 
     private:
+        void update();
+
         bool _isRunning = true;
         GLFWwindow* _window = nullptr;
 
@@ -57,6 +60,8 @@ namespace window {
         std::unique_ptr<gui::SceneView> _sceneView;
         std::unique_ptr<gui::ControlPanel> _controlPanel;
         std::unique_ptr<gui::DebugPanel> _debugPanel;
+
+        bool _isHovered = false;
 
         int _width = 0;
         int _height = 0;

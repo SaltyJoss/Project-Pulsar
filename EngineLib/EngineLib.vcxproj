@@ -219,6 +219,7 @@
     <ClCompile Include="src\Rendering\OpenGLContext.cpp" />
     <ClCompile Include="src\Rendering\ShaderUtil.cpp" />
     <ClCompile Include="src\Rendering\Skybox.cpp" />
+    <ClCompile Include="src\Scene\Camera.cpp" />
     <ClCompile Include="src\Scene\ControlPanel.cpp" />
     <ClCompile Include="src\Scene\DebugPanel.cpp" />
     <ClCompile Include="src\Scene\Input.cpp" />

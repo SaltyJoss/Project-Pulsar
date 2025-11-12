@@ -26,6 +26,7 @@ namespace window {
         virtual void onKey(int key, int scancode, int action, int mods) = 0;
         virtual void onScroll(double delta) = 0;
         virtual void onResize(int width, int height) = 0;
+		virtual void onCursorPos(double xpos, double ypos) = 0;
         virtual void onClose() = 0;
 
         virtual ~IWindow() = default;

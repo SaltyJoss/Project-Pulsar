@@ -14,5 +14,10 @@ namespace render {
 		void preRender() override;
 		void postRender() override;
 		void end() override;
+
+		GLFWwindow* getGLFWWindow() const { return _glfwWindow; }
+
+	private:
+		GLFWwindow* _glfwWindow = nullptr;
 	};
 }

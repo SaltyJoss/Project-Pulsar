@@ -61,9 +61,13 @@ namespace window {
         _height = height;
         *_header = header;
 
+        LOG_INFO("Window resized: Width=%d, Height=%d", getWidth(), getHeight());
+
         // Context layers
         _renderCntx = std::make_unique<render::OpenGLContext>();
         _renderCntx->init(this);
+
+		_window = _renderCntx->getGLFWWindow();
 
         _GUICntx = std::make_unique<render::GUIContext>();
         _GUICntx->init(this);
@@ -87,13 +91,11 @@ namespace window {
     void GLWindow::onResize(int width, int height) {
         _width = width;
         _height = height;
-        LOG_INFO("Window resized: Width=%d, Height=%d", width, height);
 
         _sceneView->resize(_width, _height);
-        LOG_INFO("SceneView resized");
+        LOG_INFO("Window resized: Width=%d, Height=%d", width, height);
         render();
     }
-
 
     bool GLWindow::shouldClose() const {
         return glfwWindowShouldClose(_window);
@@ -107,8 +109,6 @@ namespace window {
         glfwSwapBuffers(_window);
     }
 
-
-
     void* window::GLWindow::getNativeWin() {
         return _window;
     }
@@ -116,8 +116,6 @@ namespace window {
     void window::GLWindow::setNativeWin(void* window) {
         _window = static_cast<GLFWwindow*>(window);
     }
-
-
 
     int window::GLWindow::getWidth() const {
         return _width;
@@ -136,19 +134,34 @@ namespace window {
  *				USER INTERACTIONS
  * --------------------------------------------
  */
+
+    void GLWindow::update() {
+		glfwPollEvents();
+
+		static double lastFrame = glfwGetTime();
+		double currentFrame = glfwGetTime();
+		float dt = static_cast<float>(currentFrame - lastFrame);
+		lastFrame = currentFrame;
+
+        if (!_sceneView) {
+			_sceneView->handleContinuousMovement(_window, dt);
+        }
+    }
+
+    void window::GLWindow::onKey(int key, int scancode, int action, int mods) {
+        if (action == GLFW_PRESS || action == GLFW_REPEAT) {
+            if (_sceneView) { _sceneView->processMovementKey(key, 0.1f); }
+		}
+    }
+
     void window::GLWindow::onScroll(double delta) {
-        if (_sceneView)
-            _sceneView->onMouseWheel(delta);
+        if (_sceneView) { _sceneView->onMouseWheel(delta); }
     }
 
-    void GLWindow::onKey(int key, int scancode, int action, int mods) {
-        if (glfwGetKey(_window, GLFW_KEY_W) == GLFW_PRESS) {}
-        if (glfwGetKey(_window, GLFW_KEY_A) == GLFW_PRESS) {}
-        if (glfwGetKey(_window, GLFW_KEY_S) == GLFW_PRESS) {}
-        if (glfwGetKey(_window, GLFW_KEY_D) == GLFW_PRESS) {}
-
-        if (glfwGetKey(_window, GLFW_KEY_SPACE) == GLFW_PRESS) {}
-    }
+    void window::GLWindow::onCursorPos(double xpos, double ypos) {
+		// LOG_INFO("Mouse moved to: X=%.2f, Y=%.2f", xpos, ypos);
+		if (_sceneView) { _sceneView->handleMouseLook(_window, xpos, ypos); }
+	}
 
 /*
  * --------------------------------------------

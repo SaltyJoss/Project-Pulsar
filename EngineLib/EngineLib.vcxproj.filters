@@ -275,5 +275,8 @@
     <ClCompile Include="src\Scene\Input.cpp">
       <Filter>Source Files\src\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scene\Camera.cpp">
+      <Filter>Source Files\src\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

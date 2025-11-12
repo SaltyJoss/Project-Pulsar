@@ -64,6 +64,11 @@ namespace gui {
 
         void onMouseMove(double x, double y, elements::eInputButton button);
         void onMouseWheel(double delta);
+
+        void handleContinuousMovement(GLFWwindow* window, float dt);
+		void processMovementKey(int key, float delta);
+		void handleMouseLook(GLFWwindow* window, double xpos, double ypos);
+
         void resetView();
 
     private:       
