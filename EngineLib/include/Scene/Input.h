@@ -1,6 +1,11 @@
 #pragma once
+#include "EngineCore.h"
+
 #include <GLFW/glfw3.h>
 #include <cstdint>
+#include "Platform/Logger.h"
+
+extern ENGINE_API Debug gLog;
 
 namespace elements {
 	enum class eInputButton {
@@ -10,7 +15,7 @@ namespace elements {
 		None = 9
 	};
 
-	class Input {
+	class ENGINE_API Input {
 	public:
 		static eInputButton GetPressedButton(GLFWwindow* window);
 

@@ -1,9 +1,11 @@
 #pragma once
-
 #include "EngineCore.h"
+#include "Platform/Logger.h"
+
+extern ENGINE_API Debug gLog;
 
 namespace shaders {
-	class Shader {
+	class ENGINE_API Shader {
 	private:
 		unsigned int _programID;
 		unsigned int getCompiledShader(unsigned int shaderType, const std::string& shaderSource);

@@ -1,14 +1,14 @@
 #pragma once
-
 #include "EngineCore.h"
 
 #include "Scene/Element.h"
 #include "Rendering/ShaderUtil.h"
+#include "Platform/Logger.h"
 
-extern Debug gLog; // Global Variable for debugging and logs
+extern ENGINE_API Debug gLog;
 
 namespace elements {
-    class Light : public Element
+    class ENGINE_API Light : public Element
     {
     public:
 

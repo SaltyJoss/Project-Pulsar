@@ -1,6 +1,8 @@
 
 #include "pch.h"
-#include <glew.h>
+#ifdef __gl_h_
+#undef __gl_h_
+#endif
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -21,6 +23,8 @@
 #include "Scene/Mesh.h"
 
 #include "Platform/WindowManager.h"
+
+#include "EngineLib/LogMacros.h"
 
 
 namespace window {
@@ -57,35 +61,6 @@ namespace window {
         _height = height;
         *_header = header;
 
-        if (!glfwInit()) {
-            LOG_ERROR("GLFW init failed");
-            _isRunning = false;
-            return false;
-        }
-
-        // GLFW minimum OpenGL config
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
-        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-        // Create the window
-        _window = glfwCreateWindow(_width, _height, _header->c_str(), nullptr, nullptr);
-        if (!_window) {
-            LOG_ERROR("Failed to create GLFW window");
-            glfwTerminate();
-            _isRunning = false;
-            return false;
-        }
-
-        glfwMakeContextCurrent(_window);
-
-        // Load GL
-        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-            LOG_ERROR("Failed to load GLAD");
-            _isRunning = false;
-            return false;
-        }
-
         // Context layers
         _renderCntx = std::make_unique<render::OpenGLContext>();
         _renderCntx->init(this);
@@ -119,9 +94,6 @@ namespace window {
         render();
     }
 
-    bool GLWindow::isRunning() const {
-        return _isRunning;
-    }
 
     bool GLWindow::shouldClose() const {
         return glfwWindowShouldClose(_window);
@@ -135,13 +107,7 @@ namespace window {
         glfwSwapBuffers(_window);
     }
 
-    void GLWindow::onKey(int key, int scancode, int action, int mods) {
-		// Will handle key events here
-    }
 
-    void GLWindow::onClose() {
-        _isRunning = false;
-    }
 
     void* window::GLWindow::getNativeWin() {
         return _window;
@@ -151,10 +117,7 @@ namespace window {
         _window = static_cast<GLFWwindow*>(window);
     }
 
-    void window::GLWindow::onScroll(double delta) {
-        if (_sceneView)
-            _sceneView->onMouseWheel(delta);
-    }
+
 
     int window::GLWindow::getWidth() const {
         return _width;
@@ -168,4 +131,36 @@ namespace window {
         return *_header;
     }
 
+/*
+ * --------------------------------------------
+ *				USER INTERACTIONS
+ * --------------------------------------------
+ */
+    void window::GLWindow::onScroll(double delta) {
+        if (_sceneView)
+            _sceneView->onMouseWheel(delta);
+    }
+
+    void GLWindow::onKey(int key, int scancode, int action, int mods) {
+        if (glfwGetKey(_window, GLFW_KEY_W) == GLFW_PRESS) {}
+        if (glfwGetKey(_window, GLFW_KEY_A) == GLFW_PRESS) {}
+        if (glfwGetKey(_window, GLFW_KEY_S) == GLFW_PRESS) {}
+        if (glfwGetKey(_window, GLFW_KEY_D) == GLFW_PRESS) {}
+
+        if (glfwGetKey(_window, GLFW_KEY_SPACE) == GLFW_PRESS) {}
+    }
+
+/*
+ * --------------------------------------------
+ *				WINDOW STATES
+ * --------------------------------------------
+ */
+
+    bool GLWindow::isRunning() const {
+        return _isRunning;
+    }
+
+    void GLWindow::onClose() {
+        _isRunning = false;
+    }
 }

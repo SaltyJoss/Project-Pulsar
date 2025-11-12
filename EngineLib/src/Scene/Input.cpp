@@ -3,6 +3,8 @@
 #include "Scene/Input.h"
 #include <GLFW/glfw3.h>
 
+#include "EngineLib/LogMacros.h"
+
 using namespace elements;
 
 eInputButton Input::GetPressedButton(GLFWwindow* window)

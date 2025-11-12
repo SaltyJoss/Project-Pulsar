@@ -1,8 +1,10 @@
 
 #include "pch.h"
-#include <glew.h>
 
+#include <glad/glad.h>
 #include "Rendering/Skybox.h"
+
+#include "EngineLib/LogMacros.h"
 
 static const float skyboxVertices[] = {
 	-1.0f,  1.0f, -1.0f,

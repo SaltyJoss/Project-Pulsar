@@ -1,13 +1,15 @@
 #pragma once
+#include "EngineCore.h"
 
 #include "imgui.h"
 #include "SceneView.h"
 #include "Camera.h"
+#include "Platform/Logger.h"
 
-extern Debug gLog; // Global Variable for debugging and logs
+extern ENGINE_API Debug gLog;
 
 namespace gui {
-	class DebugPanel {
+	class ENGINE_API DebugPanel {
 	public:
 		void render();
 		void addLog(const std::string& msg, bool error = false);

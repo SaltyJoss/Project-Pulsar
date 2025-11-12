@@ -1,6 +1,10 @@
 #pragma once
-#include "EngineLib/Export.h"
+#include "EngineCore.h"
+
 #include "Platform/Window.h"
+#include "Platform/Logger.h"
+
+extern ENGINE_API Debug gLog;
 
 // forward declares
 struct GLFWwindow;

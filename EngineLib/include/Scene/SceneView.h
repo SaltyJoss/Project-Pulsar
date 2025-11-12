@@ -1,11 +1,14 @@
 #pragma once
-
 #include "EngineCore.h"
+
 #include "Scene/Input.h"
 #include <glm/glm.hpp>
 #include <memory>
 #include <string>
 #include <vector>
+#include "Platform/Logger.h"
+
+extern ENGINE_API Debug gLog;
 
 namespace render {
     class OpenGLFrameBuffer;
@@ -26,12 +29,16 @@ namespace elements {
 extern Debug gLog;
 
 namespace gui {
-    class SceneView{
+    class ENGINE_API SceneView{
     public:
         SceneView();
         ~SceneView();
 
         elements::Light* getLight() { return _light.get(); }
+
+        bool isSkyboxEnabled() const { return skyboxEnabled; }
+        void setSkyboxEnabled(bool b) { skyboxEnabled = b; }
+
         void setBackgroundColour(const glm::vec3& c) { _backgroundColour = c; }
         glm::vec3 getBackgroundColour() const { return _backgroundColour; }
 
@@ -94,7 +101,9 @@ namespace gui {
 
         float _backgroundAlpha = 1.0f;
         float planeHeight = -2.5f;
+
         bool _isHovered = false;
+        bool skyboxEnabled = true;
 
         unsigned int _worldGridVAO = 0;
         unsigned int _shadowFBO = 0;

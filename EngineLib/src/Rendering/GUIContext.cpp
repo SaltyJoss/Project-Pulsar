@@ -1,10 +1,14 @@
 
 #include "pch.h"
-#include <glew.h>
-#include <GLFW/glfw3.h>
+
+#ifdef __gl_h_
+#undef __gl_h_
+#endif
 #include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #include "Rendering/GUIContext.h"
+#include "EngineLib/LogMacros.h"
 
 // ImGui
 #include <imgui.h>

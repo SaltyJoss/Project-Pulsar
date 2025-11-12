@@ -1,5 +1,4 @@
 #pragma once
-
 #include "EngineCore.h"
 
 #include "Rendering/RenderBase.h"
@@ -7,11 +6,12 @@
 #include "Scene/Element.h"
 
 #include "Scene/Face.h"
+#include "Platform/Logger.h"
 
-extern Debug gLog; // Global Variable for debugging and logs
+extern ENGINE_API Debug gLog;
 
 namespace elements {
-	class Mesh : public Element {
+	class ENGINE_API Mesh : public Element {
 	public:
 		Mesh() = default;
 		

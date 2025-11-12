@@ -1,4 +1,5 @@
 #pragma once
+#include "EngineCore.h"
 
 #include "Scene/Light.h"
 #include "Scene/SceneView.h"
@@ -6,11 +7,12 @@
 #include <imgui.h>
 #include "Platform/imguiWidgets.h"
 #include <imfilebrowser.h>
+#include "Platform/Logger.h"
 
-extern Debug gLog; // Global Variable for debugging and logs
+extern ENGINE_API Debug gLog;
 
 namespace gui {
-    class ControlPanel {
+    class ENGINE_API ControlPanel {
     public:
         ControlPanel(SceneView* sceneView) : _sceneView(sceneView), _controlMode(&sceneView->_controlMode) {
             _currentFile = "<...>";

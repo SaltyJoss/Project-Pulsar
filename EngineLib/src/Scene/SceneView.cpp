@@ -1,9 +1,14 @@
-#include "pch.h"
-#include "Scene/SceneView.h"
 
+#include "pch.h"
+
+#ifdef __gl_h_
+#undef __gl_h_
+#endif
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <imgui.h>
+
+#include "Scene/SceneView.h"
 
 #include "Scene/Camera.h"
 #include "Scene/Mesh.h"
@@ -15,6 +20,8 @@
 #include "Rendering/Skybox.h"
 #include "Rendering/ShaderUtil.h"
 #include "Rendering/OpenGLBufferManager.h"
+
+#include "EngineLib/LogMacros.h"
 
 namespace gui{
 
@@ -81,7 +88,8 @@ namespace gui{
 
 		WorldGridRender();
 		MeshRender();
-		SkyboxRender();
+		
+		if (skyboxEnabled) { SkyboxRender(); }
 		
 		_frameBuffer->unbind();
 

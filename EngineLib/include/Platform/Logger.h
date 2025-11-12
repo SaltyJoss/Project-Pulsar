@@ -1,11 +1,12 @@
-
 #pragma once
+#include "EngineCore.h"
 
 #include <filesystem>
 #include <stdarg.h>
 #include <chrono>
 #include <iomanip>
 #include <mutex>
+#include <sstream>
 
 enum class LogLevel { Info, Warning, Error };
 
@@ -15,7 +16,7 @@ struct LogEntry {
     std::string message;
 };
 
-class Debug {
+class ENGINE_API Debug {
 public:
     Debug() {
         try { std::filesystem::create_directory("Log"); }
@@ -95,3 +96,6 @@ private:
         }
     }
 };
+
+extern ENGINE_API Debug gLog;
+

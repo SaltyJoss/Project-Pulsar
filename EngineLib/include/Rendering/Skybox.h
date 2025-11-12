@@ -1,12 +1,13 @@
 #pragma once
-
 #include "EngineCore.h"
-
 #include "Rendering/ShaderUtil.h"
 #include "Rendering/Cubemap.h"
+#include "Platform/Logger.h"
+
+extern ENGINE_API Debug gLog;
 
 namespace render {
-	class Skybox {
+	class ENGINE_API Skybox {
 	public:
 		Skybox(Cubemap* cubemap, shaders::Shader* shader);
 

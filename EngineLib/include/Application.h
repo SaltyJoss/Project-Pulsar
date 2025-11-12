@@ -1,6 +1,6 @@
 #pragma once
+#include "EngineCore.h"
 
-#include "EngineLib/Export.h"
 #include <memory>
 #include <string>
 

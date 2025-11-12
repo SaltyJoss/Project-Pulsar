@@ -1,10 +1,15 @@
 
 #include "pch.h"
-#include <glew.h>
+
+#ifdef __gl_h_
+#undef __gl_h_
+#endif
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include "Rendering/OpenGLContext.h"
+
+#include "EngineLib/LogMacros.h"
 
 namespace render {
 	static void onKey_Callback(GLFWwindow* win, int  key, int scancode, int action, int mods) {
@@ -57,12 +62,6 @@ namespace render {
 		glfwSetWindowSizeCallback(glWindow, onResize_Callback);
 		glfwSetWindowCloseCallback(glWindow, onClose_Callback);
 		glfwMakeContextCurrent(glWindow);
-
-		GLenum err = glewInit();
-		if (err != GLEW_OK) { 
-			LOG_ERROR("GLEW failed -> ", glewGetErrorString(err));
-			return false; 
-		}
 
 		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) { 
 			LOG_ERROR("Failed to initialise GLAD");

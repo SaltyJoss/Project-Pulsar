@@ -1,9 +1,15 @@
 
 #include "pch.h"
-#include <glew.h>
+
+#ifdef __gl_h_
+#undef __gl_h_
+#endif
+#include <glad/glad.h>
 
 #include "Rendering/Cubemap.h"
 #include <stb/stb_image.h>
+
+#include "EngineLib/LogMacros.h"
 
 namespace render{
 	Cubemap::Cubemap(const std::array<std::string, 6>& faces) {

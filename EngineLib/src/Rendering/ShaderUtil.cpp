@@ -1,8 +1,10 @@
 
 #include "pch.h"
-#include <glew.h>
 
+#include <glad/glad.h>
 #include "Rendering/ShaderUtil.h"
+
+#include "EngineLib/LogMacros.h"
 
 namespace shaders {
 	unsigned int Shader::getCompiledShader(unsigned int shaderType, const std::string& shaderSource) {

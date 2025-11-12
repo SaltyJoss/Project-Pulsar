@@ -5,6 +5,8 @@
 #include "Scene/VertexHolder.h"
 #include "Platform/str_utils.h"
 
+#include "EngineLib/LogMacros.h"
+
 namespace mesh_import
 {
   bool ObjMeshImporter::fromFile(const std::string& filepath, elements::Mesh* pMesh)

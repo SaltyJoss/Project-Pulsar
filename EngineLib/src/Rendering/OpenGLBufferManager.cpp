@@ -1,8 +1,14 @@
 
 #include "pch.h"
-#include <glew.h>
+
+#ifdef __gl_h_
+#undef __gl_h_
+#endif
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #include "Rendering/OpenGLBufferManager.h"
+#include "EngineLib/LogMacros.h"
 
 namespace render {
 	// --- OpenGLVertexIndexBuffer ---

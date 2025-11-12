@@ -1,10 +1,11 @@
 
 #include "pch.h"
-#include "Scene/Mesh.h"
 
+#include "Scene/Mesh.h"
+#include "Scene/ControlPanel.h"
 #include <imgui.h>
 
-#include "Scene/ControlPanel.h"
+#include "EngineLib/LogMacros.h"
 
 void gui::ControlPanel::render(gui::SceneView* sceneView) {
     _sceneView = sceneView; // store pointer for convenience
@@ -107,4 +108,10 @@ void gui::ControlPanel::renderCameraProperties() {
 
 void gui::ControlPanel::renderDisplaySettings() {
     ImGui::SeparatorText("Display Settings");
+
+    bool enabled = _sceneView->isSkyboxEnabled();
+    if (ImGui::Checkbox("Show Skybox", &enabled)) {
+        _sceneView->setSkyboxEnabled(enabled);
+        LOG_INFO("Skybox Enabled = %s", enabled ? "true" : "false");
+    }
 }

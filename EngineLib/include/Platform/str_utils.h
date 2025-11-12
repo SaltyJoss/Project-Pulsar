@@ -1,6 +1,8 @@
 #pragma once
-
 #include "EngineCore.h"
+#include "Platform/Logger.h"
+
+extern ENGINE_API Debug gLog;
 
 namespace utils
 {

@@ -1,15 +1,18 @@
 #pragma once
-
 #include "EngineCore.h"
 
 #include "Platform/Window.h"
 #include "Scene/VertexHolder.h"
 
 #include <cstdint>
+#include "Platform/Logger.h"
+
+extern ENGINE_API Debug gLog;
+
 using GLuint = std::uint32_t;
 
 namespace render {
-	class VertexIndexBuffer {
+	class ENGINE_API VertexIndexBuffer {
 	public:
 		virtual ~VertexIndexBuffer() = default;
 

@@ -1,14 +1,14 @@
 #pragma once
-
 #include "EngineCore.h"
 
 #include "RenderBase.h"
 #include "Scene/Styles.h"
+#include "Platform/Logger.h"
 
-extern Debug gLog; // Global Variable for debugging and logs
+extern ENGINE_API Debug gLog;
 
 namespace render {
-	class GUIContext : public RenderContext {
+	class ENGINE_API GUIContext : public RenderContext {
 	public:
 		bool init(window::IWindow* win) override;
 		void preRender() override;

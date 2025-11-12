@@ -156,9 +156,6 @@
     <ClInclude Include="include\Rendering\RenderBase.h">
       <Filter>Header Files\include\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="..\External\GLAD\glad.h">
-      <Filter>External\glad</Filter>
-    </ClInclude>
     <ClInclude Include="..\External\imgui\imconfig.h">
       <Filter>External\imgui</Filter>
     </ClInclude>
@@ -189,8 +186,11 @@
     <ClInclude Include="..\External\stb\stb_image.h">
       <Filter>External\stb</Filter>
     </ClInclude>
-    <ClInclude Include="include\EngineLib\Export.h">
+    <ClInclude Include="include\EngineLib\LogMacros.h">
       <Filter>Header Files\include\EngineLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\GLAD\glad\glad.h">
+      <Filter>External\glad</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -241,9 +241,6 @@
     </ClCompile>
     <ClCompile Include="src\Assets\importObj.cpp">
       <Filter>Source Files\src\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EngineCore.cpp">
-      <Filter>Source Files\src</Filter>
     </ClCompile>
     <ClCompile Include="..\External\GLAD\glad.c">
       <Filter>External\glad</Filter>

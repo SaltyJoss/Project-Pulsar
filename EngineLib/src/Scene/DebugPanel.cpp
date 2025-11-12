@@ -2,9 +2,10 @@
 #include "pch.h"
 
 #include <imgui.h>
-
 #include "Scene/DebugPanel.h"
 #include <io.h>
+
+#include "EngineLib/LogMacros.h"
 
 void gui::DebugPanel::render() {
     ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x - 310, ImGui::GetIO().DisplaySize.y - 200), ImGuiCond_FirstUseEver);

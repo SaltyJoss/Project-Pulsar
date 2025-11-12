@@ -1,6 +1,9 @@
 #pragma once
-
 #include "EngineCore.h"
+#include "Platform/Logger.h"
+#include <GLFW/glfw3.h>
+
+extern ENGINE_API Debug gLog;
 
 namespace gui {
 	class FpsCounter {

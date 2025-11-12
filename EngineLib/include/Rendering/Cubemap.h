@@ -1,15 +1,16 @@
 #pragma once
-
 #include "EngineCore.h"
-
 #include "RenderBase.h"
 #include "Scene/VertexHolder.h"
 #include "Scene/Element.h"
 
 #include "Scene/Face.h"
+#include "Platform/Logger.h"
+
+extern ENGINE_API Debug gLog;
 
 namespace render {
-	class Cubemap {
+	class ENGINE_API Cubemap {
 	public:
 		Cubemap(const std::array<std::string, 6>& faces);
 		~Cubemap();

@@ -1,4 +1,5 @@
 #pragma once
+#include "EngineCore.h"
 
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/quaternion.hpp>
@@ -10,11 +11,12 @@
 #include "Scene/Element.h"
 #include "Rendering/ShaderUtil.h"
 #include "Scene/Input.h"
+#include "Platform/Logger.h"
 
-extern Debug gLog; // Global Variable for debugging and logs
+extern ENGINE_API Debug gLog;
 
 namespace elements {
-	class Camera : public Element
+	class ENGINE_API Camera : public Element
 	{
 	public:
 

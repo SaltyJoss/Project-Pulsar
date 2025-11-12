@@ -1,6 +1,10 @@
 #pragma once
+#include "EngineCore.h"
 
 #include "Scene/Mesh.h"
+#include "Platform/Logger.h"
+
+extern ENGINE_API Debug gLog;
 
 namespace mesh_import {
 

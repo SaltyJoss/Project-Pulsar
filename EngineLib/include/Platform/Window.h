@@ -1,9 +1,10 @@
 #pragma once
-
 #include "EngineCore.h"
-#include "EngineLib/Export.h"
 
 #include <imgui.h>
+#include "Platform/Logger.h"
+
+extern ENGINE_API Debug gLog;
 
 //Basic window interface
 namespace window {

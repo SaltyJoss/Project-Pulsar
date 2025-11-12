@@ -1,5 +1,4 @@
 #pragma once
-
 #include "EngineCore.h"
 
 namespace gui {

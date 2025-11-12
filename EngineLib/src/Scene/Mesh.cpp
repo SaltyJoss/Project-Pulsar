@@ -9,6 +9,7 @@
 
 #include "Rendering/OpenGLBufferManager.h"
 
+#include "EngineLib/LogMacros.h"
 
 namespace elements {
 	void Mesh::init() {

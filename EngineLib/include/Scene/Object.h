@@ -1,5 +1,4 @@
 #pragma once
-
 #include "EngineCore.h"
 
 #define GLM_ENABLE_EXPERIMENTAL
@@ -9,11 +8,12 @@
 #include "Rendering/ShaderUtil.h"
 #include "Scene/Input.h"
 #include "Scene/Mesh.h"
+#include "Platform/Logger.h"
 
-extern Debug gLog; // Global Variable for debugging and logs
+extern ENGINE_API Debug gLog;
 
 namespace elements {
-	class Object : public Element
+	class ENGINE_API Object : public Element
 	{
 	public:
 		Object(std::shared_ptr<elements::Mesh> mesh) : _mesh(mesh), _position(0.0f), _rotation(0.0f), _distance(5.0f), _lastMousePos(0.0f) {}

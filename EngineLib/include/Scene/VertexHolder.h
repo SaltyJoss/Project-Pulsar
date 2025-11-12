@@ -1,11 +1,11 @@
 #pragma once
-
 #include "EngineCore.h"
+#include "Platform/Logger.h"
 
-extern Debug gLog; // Global Variable for debugging and logs
+extern ENGINE_API Debug gLog;
 
 namespace elements {
-	class VertexHolder {
+	class ENGINE_API VertexHolder {
 	public:
 		VertexHolder() : _pos(), _normal() {}
 
