@@ -1,0 +1,28 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Clean build folders
+      run: |
+        if (Test-Path bin) { Remove-Item -Recurse -Force bin }
+        if (Test-Path bin-int) { Remove-Item -Recurse -Force bin-int }
+        if (Test-Path out) { Remove-Item -Recurse -Force out }
+        if (Test-Path x64) { Remove-Item -Recurse -Force x64 }
+        if (Test-Path build) { Remove-Item -Recurse -Force build }
+
+    - name: Force clean Release build
+      run: |
+        msbuild Engine.sln /t:Rebuild /p:Configuration=Release /p:Platform=x64 /p:RuntimeLibrary=MultiThreadedDLL /m
+
