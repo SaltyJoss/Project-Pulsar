@@ -24,8 +24,5 @@ jobs:
 
     - name: Force clean Release build
       run: |
-        msbuild Engine.sln /t:Rebuild `
-          /p:Configuration=Release `
-          /p:Platform=x64 `
-          /p:UseSharedCompilation=false `
-          /m
+        msbuild Engine.sln /t:Rebuild /p:Configuration=Release /p:Platform=x64 /p:RuntimeLibrary=MultiThreadedDLL /m
+
