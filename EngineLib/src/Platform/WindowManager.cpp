@@ -143,9 +143,7 @@ namespace window {
 		float dt = static_cast<float>(currentFrame - lastFrame);
 		lastFrame = currentFrame;
 
-        if (!_sceneView) {
-			_sceneView->handleContinuousMovement(_window, dt);
-        }
+        if (_sceneView) { _sceneView->handleContinuousMovement(_window, dt); }
     }
 
     void window::GLWindow::onKey(int key, int scancode, int action, int mods) {
