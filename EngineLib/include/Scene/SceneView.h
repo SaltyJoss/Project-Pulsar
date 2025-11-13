@@ -6,6 +6,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include "FpsCounter.h"
 #include "Platform/Logger.h"
 
 extern ENGINE_API Debug gLog;
@@ -96,6 +97,8 @@ namespace gui {
         std::shared_ptr<elements::Mesh> _checkerPlane;
         std::shared_ptr<elements::Mesh> createCheckerPlane(float size = 50.0f);
         std::shared_ptr<elements::Mesh> _mesh;
+
+        gui::FpsCounter _fpsCounter;
 
         glm::vec2 _size;
         glm::vec2 _lastMousePos;

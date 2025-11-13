@@ -81,6 +81,7 @@ namespace gui{
 	}
 
 	void SceneView::render() {
+		_fpsCounter.update();
 		LightSpaceMatrix();
 		ShadowPass();
 
@@ -94,6 +95,8 @@ namespace gui{
 		_frameBuffer->unbind();
 
 		ImGui::Begin("Game Engine");
+
+		ImGui::Text("FPS: %.1f", _fpsCounter.getFPS());
 
 		_isHovered = ImGui::IsWindowHovered(ImGuiHoveredFlags_RootAndChildWindows);
 		ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
