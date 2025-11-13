@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
@@ -26,19 +18,6 @@
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
@@ -57,12 +36,6 @@
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -70,65 +43,35 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Engine\src;$(ProjectDir)External\assimp;$(ProjectDir)External\GLEW\GL;$(ProjectDir)External\GLFW;$(ProjectDir)External\GLM;$(ProjectDir)External\imgui\plugins;$(ProjectDir)External\imgui;$(ProjectDir)External;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)External\assimp\lib;$(ProjectDir)External\GLEW\lib;$(ProjectDir)External\GLFW\lib;$(ProjectDir)External\zlib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;glew32.lib;assimp-vc143-mtd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-    <PostBuildEvent>
-      <Command>xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
-xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Engine\src;$(ProjectDir)External\assimp;$(ProjectDir)External\GLEW\GL;$(ProjectDir)External\GLFW;$(ProjectDir)External\GLM;$(ProjectDir)External\imgui\plugins;$(ProjectDir)External\imgui;$(ProjectDir)External;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)External\assimp\lib;$(ProjectDir)External\GLEW\lib;$(ProjectDir)External\GLFW\lib;$(ProjectDir)External\zlib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;glew32.lib;assimp-vc143-mtd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-    <PostBuildEvent>
-      <Command>xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
-xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin-int\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin-int\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Engine\src;$(ProjectDir)External\assimp;$(ProjectDir)External\GLEW\GL;$(ProjectDir)External\GLFW;$(ProjectDir)External\GLM;$(ProjectDir)External\imgui\plugins;$(ProjectDir)External\imgui;$(ProjectDir)External;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)EngineLib;$(SolutionDir)EngineLib\include;$SolutionDir)External\GLFW;$(SolutionDir)External\GLAD;$(SolutionDir)External\GLM;$(SolutionDir)External\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <ObjectFileName>$(IntDir)%(FileName).obj</ObjectFileName>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)External\assimp\lib;$(ProjectDir)External\GLEW\lib;$(ProjectDir)External\GLFW\lib;$(ProjectDir)External\zlib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;glew32.lib;assimp-vc143-mtd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)External\GLFW\lib;$(SolutionDir)External\assimp\lib;$(SolutionDir)bin\EngineLib\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>"glfw3.lib";"assimp-vc143-mtd.lib";"opengl32.lib";"EngineLib.lib";%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
+      <Command>xcopy /Y /D "$(SolutionDir)x64\Debug\EngineLib.dll" "$(TargetDir)"
+xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
 xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -140,95 +83,25 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Engine\src;$(ProjectDir)External\assimp;$(ProjectDir)External\GLEW\GL;$(ProjectDir)External\GLFW;$(ProjectDir)External\GLM;$(ProjectDir)External\imgui\plugins;$(ProjectDir)External\imgui;$(ProjectDir)External;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)EngineLib;$(SolutionDir)EngineLib\include;$SolutionDir)External\GLFW;$(SolutionDir)External\GLAD;$(SolutionDir)External\GLM;$(SolutionDir)External\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessToFile>true</PreprocessToFile>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <ObjectFileName>$(IntDir)%(FileName).obj</ObjectFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)External\assimp\lib;$(ProjectDir)External\GLEW\lib;$(ProjectDir)External\GLFW\lib;$(ProjectDir)External\zlib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;glew32.lib;assimp-vc143-mtd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)External\GLFW\lib;$(SolutionDir)External\assimp\lib;$(SolutionDir)bin\EngineLib\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>"glfw3.lib";"assimp-vc143-mtd.lib";"opengl32.lib";"glfw3.lib";"EngineLib.lib";%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
+      <Command>xcopy /Y /D "$(SolutionDir)x64\Release\EngineLib.dll" "$(TargetDir)"
+xcopy "$(ProjectDir)External\GLEW\bin\*.dll" "$(TargetDir)" /Y
 xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Engine\src\Application.cpp" />
-    <ClCompile Include="Engine\src\Assets\importObj.cpp" />
-    <ClCompile Include="Engine\src\Platform\WindowManager.cpp" />
-    <ClCompile Include="Engine\src\Rendering\Cubemap.cpp" />
-    <ClCompile Include="Engine\src\Rendering\GUIContext.cpp" />
-    <ClCompile Include="Engine\src\Rendering\OpenGLBufferManager.cpp" />
-    <ClCompile Include="Engine\src\Rendering\OpenGLContext.cpp" />
-    <ClCompile Include="Engine\src\Rendering\shaderClass.cpp" />
-    <ClCompile Include="Engine\src\Rendering\ShaderUtil.cpp" />
-    <ClCompile Include="Engine\src\Rendering\SimulationManager.cpp" />
-    <ClCompile Include="Engine\src\Rendering\Skybox.cpp" />
-    <ClCompile Include="Engine\src\Scene\ControlPanel.cpp" />
-    <ClCompile Include="Engine\src\Scene\DebugPanel.cpp" />
-    <ClCompile Include="Engine\src\Scene\Mesh.cpp" />
-    <ClCompile Include="Engine\src\Scene\SceneView.cpp" />
-    <ClCompile Include="Engine\src\Scene\SimulationPanels.cpp" />
-    <ClCompile Include="Engine\src\Scene\Styles.cpp" />
-    <ClCompile Include="Engine\src\Scene\TitleBarPanel.cpp" />
-    <ClCompile Include="External\GLAD\glad.c" />
-    <ClCompile Include="External\imgui\imgui.cpp" />
-    <ClCompile Include="External\imgui\imgui_demo.cpp" />
-    <ClCompile Include="External\imgui\imgui_draw.cpp" />
-    <ClCompile Include="External\imgui\imgui_impl_glfw.cpp" />
-    <ClCompile Include="External\imgui\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="External\imgui\imgui_tables.cpp" />
-    <ClCompile Include="External\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="External\stb\std_image.cpp" />
-    <ClCompile Include="Game\src\Main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Engine\src\Application.h" />
-    <ClInclude Include="Engine\src\Assets\importBase.h" />
-    <ClInclude Include="Engine\src\Assets\importObj.h" />
-    <ClInclude Include="Engine\src\pch.h" />
-    <ClInclude Include="Engine\src\Platform\imguiWidgets.h" />
-    <ClInclude Include="Engine\src\Platform\Logger.h" />
-    <ClInclude Include="Engine\src\Platform\str_utils.h" />
-    <ClInclude Include="Engine\src\Platform\Window.h" />
-    <ClInclude Include="Engine\src\Platform\WindowManager.h" />
-    <ClInclude Include="Engine\src\Rendering\Cubemap.h" />
-    <ClInclude Include="Engine\src\Rendering\GUIContext.h" />
-    <ClInclude Include="Engine\src\Rendering\OpenGLBufferManager.h" />
-    <ClInclude Include="Engine\src\Rendering\OpenGLContext.h" />
-    <ClInclude Include="Engine\src\Rendering\RenderBase.h" />
-    <ClInclude Include="Engine\src\Rendering\shaderClass.h" />
-    <ClInclude Include="Engine\src\Rendering\ShaderUtil.h" />
-    <ClInclude Include="Engine\src\Rendering\Skybox.h" />
-    <ClInclude Include="Engine\src\Scene\Camera.h" />
-    <ClInclude Include="Engine\src\Scene\ControlPanel.h" />
-    <ClInclude Include="Engine\src\Scene\DebugLogEntry.h" />
-    <ClInclude Include="Engine\src\Scene\DebugPanel.h" />
-    <ClInclude Include="Engine\src\Scene\Element.h" />
-    <ClInclude Include="Engine\src\Scene\Face.h" />
-    <ClInclude Include="Engine\src\Scene\FpsCounter.h" />
-    <ClInclude Include="Engine\src\Scene\Input.h" />
-    <ClInclude Include="Engine\src\Scene\Light.h" />
-    <ClInclude Include="Engine\src\Scene\Mesh.h" />
-    <ClInclude Include="Engine\src\Scene\Object.h" />
-    <ClInclude Include="Engine\src\Scene\SceneView.h" />
-    <ClInclude Include="Engine\src\Scene\SimulationPanels.h" />
-    <ClInclude Include="Engine\src\Scene\Styles.h" />
-    <ClInclude Include="Engine\src\Scene\VertexHolder.h" />
-    <ClInclude Include="External\GLAD\glad.h" />
-    <ClInclude Include="External\imgui\imconfig.h" />
-    <ClInclude Include="External\imgui\imgui.h" />
-    <ClInclude Include="External\imgui\imgui_impl_glfw.h" />
-    <ClInclude Include="External\imgui\imgui_impl_opengl3.h" />
-    <ClInclude Include="External\imgui\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="External\imgui\imgui_internal.h" />
-    <ClInclude Include="External\imgui\imstb_rectpack.h" />
-    <ClInclude Include="External\imgui\imstb_textedit.h" />
-    <ClInclude Include="External\imgui\imstb_truetype.h" />
-    <ClInclude Include="External\stb\stb_image.h" />
-  </ItemGroup>
   <ItemGroup>
     <None Include="Engine\assets\shaders\fs_pbr.frag.glsl" />
     <None Include="Engine\assets\shaders\shadow_depth.frag.glsl" />
@@ -238,6 +111,12 @@ xcopy "$(ProjectDir)External\assimp\bin\*.dll" "$(TargetDir)" /Y</Command>
     <None Include="Engine\assets\shaders\vs_pbr.vert.glsl" />
     <None Include="Engine\assets\shaders\world_grid.frag.glsl" />
     <None Include="Engine\assets\shaders\world_grid.vert.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game\src\Main.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)%(FileName).obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)%(FileName).obj</ObjectFileName>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

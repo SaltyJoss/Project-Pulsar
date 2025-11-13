@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\src">
+      <UniqueIdentifier>{d0252943-4a36-4b90-a680-b5da70a58a4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\Platform">
+      <UniqueIdentifier>{f9b4de66-48cc-4fa8-9451-9d33a78c838c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\Scene">
+      <UniqueIdentifier>{9b5ef6e2-3632-4ec3-88f1-a45e7d71bcd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\Assets">
+      <UniqueIdentifier>{ee032ee3-5a2f-434a-8500-2a8f696f49bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\Rendering">
+      <UniqueIdentifier>{d43aa467-c816-40a8-b0fc-14c63ba64710}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include">
+      <UniqueIdentifier>{da4b06ae-72e2-49d2-914a-c4c54e0a2816}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\Assets">
+      <UniqueIdentifier>{19f69021-8834-4104-8bfb-a2ff45e15350}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\Platform">
+      <UniqueIdentifier>{05d76705-d770-4198-bc45-a0ee3b4e9b30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\Rendering">
+      <UniqueIdentifier>{9c4ce35a-04c4-48d5-81ae-0f7e511baef3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\Scene">
+      <UniqueIdentifier>{8a62189d-b145-4ede-852d-99b8d7fa922e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External">
+      <UniqueIdentifier>{d3287bfd-320c-4646-bad7-bc55b8e36ed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\glad">
+      <UniqueIdentifier>{fdabb892-42b2-420c-9e6f-d5547b843010}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\imgui">
+      <UniqueIdentifier>{cf8881e4-2b65-49b9-a4db-81a65535656c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\stb">
+      <UniqueIdentifier>{8ba329bc-c4a9-4020-bdb3-0a578c3a0bdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include\EngineLib">
+      <UniqueIdentifier>{1827a04a-13b7-4b24-b434-cc50c7a74428}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Application.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Platform\imguiWidgets.h">
+      <Filter>Header Files\include\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Platform\Logger.h">
+      <Filter>Header Files\include\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Platform\str_utils.h">
+      <Filter>Header Files\include\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Platform\Window.h">
+      <Filter>Header Files\include\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Platform\WindowManager.h">
+      <Filter>Header Files\include\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Rendering\Cubemap.h">
+      <Filter>Header Files\include\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Rendering\GUIContext.h">
+      <Filter>Header Files\include\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Rendering\OpenGLBufferManager.h">
+      <Filter>Header Files\include\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Rendering\OpenGLContext.h">
+      <Filter>Header Files\include\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Rendering\ShaderUtil.h">
+      <Filter>Header Files\include\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Rendering\Skybox.h">
+      <Filter>Header Files\include\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\Camera.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\ControlPanel.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\DebugLogEntry.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\DebugPanel.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\Element.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\Face.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\FpsCounter.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\Input.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\Light.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\Mesh.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\Object.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\SceneView.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\Styles.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\VertexHolder.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Assets\importBase.h">
+      <Filter>Header Files\include\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Assets\importObj.h">
+      <Filter>Header Files\include\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EngineCore.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Rendering\RenderBase.h">
+      <Filter>Header Files\include\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imconfig.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imgui.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imgui_impl_glfw.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imgui_impl_opengl3.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imgui_impl_opengl3_loader.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imgui_internal.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imstb_rectpack.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imstb_textedit.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imstb_truetype.h">
+      <Filter>External\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\stb\stb_image.h">
+      <Filter>External\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EngineLib\LogMacros.h">
+      <Filter>Header Files\include\EngineLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\GLAD\glad\glad.h">
+      <Filter>External\glad</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Application.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\ControlPanel.cpp">
+      <Filter>Source Files\src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\DebugPanel.cpp">
+      <Filter>Source Files\src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Mesh.cpp">
+      <Filter>Source Files\src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\SceneView.cpp">
+      <Filter>Source Files\src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Styles.cpp">
+      <Filter>Source Files\src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\Cubemap.cpp">
+      <Filter>Source Files\src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\GUIContext.cpp">
+      <Filter>Source Files\src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\OpenGLBufferManager.cpp">
+      <Filter>Source Files\src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\OpenGLContext.cpp">
+      <Filter>Source Files\src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\ShaderUtil.cpp">
+      <Filter>Source Files\src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\Skybox.cpp">
+      <Filter>Source Files\src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\WindowManager.cpp">
+      <Filter>Source Files\src\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Assets\importObj.cpp">
+      <Filter>Source Files\src\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\GLAD\glad.c">
+      <Filter>External\glad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui_demo.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui_draw.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui_impl_glfw.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui_impl_opengl3.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui_tables.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui_widgets.cpp">
+      <Filter>External\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\stb\std_image.cpp">
+      <Filter>External\stb</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Logger.cpp">
+      <Filter>Source Files\src\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Input.cpp">
+      <Filter>Source Files\src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Camera.cpp">
+      <Filter>Source Files\src\Scene</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
