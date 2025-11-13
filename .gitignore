@@ -18,10 +18,9 @@
 mono_crash.*
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
+[Dd]ebug*/
+[Rr]elease*/
+[Bb]in/
 x64/
 x86/
 [Ww][Ii][Nn]32/
@@ -421,3 +420,48 @@ FodyWeavers.xsd
 
 # ImGui Config .ini for Window preference
 imgui.ini
+
+# --- Custom Engine / C++ DLL project additions ---
+
+# Ignore engine binaries and intermediate files
+bin/
+bin-int/
+out/
+build/
+intermediate/
+
+# Ignore compiled build artifacts
+*.dll
+*.lib
+*.exp
+*.exe
+*.pdb
+*.idb
+*.obj
+*.ilk
+*.tlog
+
+# Ignore vcpkg build and installed files if used
+vcpkg_installed/
+vcpkg_buildtrees/
+vcpkg_downloads/
+
+# --- Keep necessary runtime & source files ---
+
+# Keep required external runtime libs and headers
+!{external,thirdparty,deps,vendor}/**/
+!{external,thirdparty,deps,vendor}/**/*.dll
+!{external,thirdparty,deps,vendor}/**/*.lib
+!{external,thirdparty,deps,vendor}/**/*.h
+!{external,thirdparty,deps,vendor}/**/*.hpp
+
+# Keep actual source & project files
+!**/*.h
+!**/*.hpp
+!**/*.cpp
+!**/*.c
+!**/*.inl
+!**/*.vcxproj
+!**/*.vcxproj.filters
+!**/*.sln
+!CMakeLists.txt
