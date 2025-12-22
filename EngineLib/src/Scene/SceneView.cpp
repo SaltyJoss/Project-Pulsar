@@ -14,6 +14,7 @@
 #include "Scene/Light.h"
 #include "Scene/Input.h"
 #include "Scene/Object.h"
+#include "Scene/AxisOrientator.h"
 
 #include "Rendering/Cubemap.h"
 #include "Rendering/SkyboxRenderer.h"
@@ -61,6 +62,7 @@ namespace gui{
 
 		_light = std::make_unique<elements::Light>();
 		_camera = std::make_unique<elements::Camera>(glm::vec3(0, 15, 20), 45.0f, 16 / 9, 0.5f, 2000.0f);
+		_axisOrientator = std::make_unique<gui::AxisOrientator>();
 
 		glGenVertexArrays(1, &_worldGridVAO);
 
@@ -94,7 +96,9 @@ namespace gui{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glEnable(GL_DEPTH_TEST);
 
-		WorldGridRender();
+		glm::mat4 view = _camera->getViewMatrix();
+
+		//WorldGridRender();
 		MeshRender();
 		
 
@@ -109,6 +113,8 @@ namespace gui{
 			glDepthFunc(GL_LESS);
 		}
 		
+		_axisOrientator->render(view);
+
 		_frameBuffer->unbind();
 
 		ImGui::Begin("Game Engine");

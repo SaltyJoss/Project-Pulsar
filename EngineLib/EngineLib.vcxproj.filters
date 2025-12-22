@@ -198,6 +198,9 @@
     <ClInclude Include="include\Rendering\CubeVertices.h">
       <Filter>Header Files\include\Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="include\Scene\AxisOrientator.h">
+      <Filter>Header Files\include\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -289,6 +292,9 @@
     </ClCompile>
     <ClCompile Include="src\Rendering\CubeVertices.cpp">
       <Filter>Source Files\src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\AxisOrientator.cpp">
+      <Filter>Source Files\src\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

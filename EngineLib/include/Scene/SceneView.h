@@ -31,6 +31,7 @@ namespace elements {
 extern Debug gLog;
 
 namespace gui {
+    class AxisOrientator;
     class ENGINE_API SceneView{
     public:
         SceneView();
@@ -108,6 +109,7 @@ namespace gui {
         std::shared_ptr<elements::Mesh> _checkerPlane;
         std::shared_ptr<elements::Mesh> createCheckerPlane(float size = 50.0f);
         std::shared_ptr<elements::Mesh> _mesh;
+        std::unique_ptr<AxisOrientator> _axisOrientator;
 
         gui::FpsCounter _fpsCounter;
 
